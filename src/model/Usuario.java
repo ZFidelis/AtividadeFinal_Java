@@ -46,5 +46,13 @@ public abstract class Usuario {
         this.senha = senha;
     }
     //#endregion
+    //#region Methods
     
+    //#endregion
+    //#region String Manipulation
+    @Override
+    public String toString() {
+        return nome + ", " + email +  ", " + senha;
+    }
+    //#endregion
 }
