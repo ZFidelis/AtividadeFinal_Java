@@ -25,5 +25,13 @@ public class Professor extends Usuario {
         this.registro = registro;
     }
     //#endregion
+    //#region Methods
     
+    //#endregion
+    //#region String Manipulation
+    @Override
+    public String toString() {
+        return super.toString() + ", " + registro;
+    }
+    //#endregion
 }
