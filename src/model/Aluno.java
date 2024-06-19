@@ -23,5 +23,8 @@ public class Aluno extends Usuario {
         this.matricula = matricula;
     }
     //#endregion
-
+    //#region Methods
+    
+    //#endregion
+    
 }

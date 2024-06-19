@@ -5,7 +5,7 @@ import model.*;
 import view.*;
 //#endregion
 
-public class Administrador extends Usuario{
+public class Administrador extends Usuario {
     private int nivelAcesso;
 
     //#region Constructors
@@ -23,5 +23,14 @@ public class Administrador extends Usuario{
         this.nivelAcesso = nivelAcesso;
     }
     //#endregion
-    
+    //#region Methods
+    public void criarCurso() {
+
+    }
+
+    public void removerCurso() {
+
+    }
+    //#endregion
+
 }
