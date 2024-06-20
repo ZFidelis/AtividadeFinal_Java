@@ -64,7 +64,12 @@ public class Curso {
         this.nomeProfessor = professor;
     }
     //#endregion
-    
+    //#region Methods
+
+    public String dadosCurso() {
+        return "Título: " + titulo + " (" + duracao + "h)" + "\nDescrição: " + descricao + "\nProfessor: " + nomeProfessor;
+    }
+    //#endregion
     //#region String Manipulation
     @Override
     public String toString() {
