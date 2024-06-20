@@ -25,8 +25,8 @@ public class Aluno extends Usuario {
     //#endregion
     //#region Methods
     
-    public String dadosCurso() {
-        return "Nome: " + nome + "\nEmail: " + email + "\nSenha: " + senha;
+    public String dadosAluno() {
+        return super.dadosUsuario() + "\nMatricula: " + matricula;
     }
     //#endregion
     //#region String Manipulation
