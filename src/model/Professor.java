@@ -39,7 +39,7 @@ public class Professor extends Usuario {
     public static Professor fromString(String linha) {
         String[] dadosProfessor = linha.split(", ");
 
-        return new Professor(dadosProfessor[0], dadosProfessor[1], Integer.parseInt(dadosProfessor[2]), dadosProfessor[3]);
+        return new Professor(dadosProfessor[0], dadosProfessor[1], dadosProfessor[2], Integer.parseInt(dadosProfessor[3]));
     }
     //#endregion
 }
