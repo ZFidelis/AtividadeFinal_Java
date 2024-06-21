@@ -55,7 +55,7 @@ public class Console {
     // Função à seguir será utilizada apenas para criação de código aleatório
     public static int gerarCodigoVerificacao(){
         int codigoV;
-        int min = 000000;
+        int min = 100000;
         int max = 999999;
 
         codigoV = secureRandom.nextInt(max-min) + min;
