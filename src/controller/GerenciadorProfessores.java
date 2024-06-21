@@ -33,13 +33,13 @@ public class GerenciadorProfessores {
     }
     //#endregion
     //#region ArrayList Manipulation
-    public static void adicionarProfessore(Professor professor) {
+    public static void adicionarProfessor(Professor professor) {
         listaProfessores.add(professor);
     }
 
     public static void listarProfessores() {
         for (Professor professor : listaProfessores) {
-            System.out.println(professor.dadosProfessore());
+            System.out.println(professor.dadosProfessor());
         }
     }
 
