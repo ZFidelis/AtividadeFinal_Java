@@ -5,7 +5,10 @@ public class Sistema {
     public static void inicializar() {
         try {
             GerenciadorCursos.carregarCursos();
+            GerenciadorAlunos.carregarAlunos();
+            GerenciadorProfessores.carregarProfessores();
             System.out.println("\nDados carregados com sucesso!");
+            System.out.println("Programa Iniciado!\n\n");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -14,6 +17,8 @@ public class Sistema {
     public static void finalizar() {
         try {
             GerenciadorCursos.manterCursos();
+            GerenciadorAlunos.manterAlunos();
+            GerenciadorProfessores.manterProfessores();
             System.out.println("\nDados salvos com sucesso!");
             System.out.println("Sistema Finalizado");
         } catch (Exception e) {
