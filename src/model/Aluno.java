@@ -25,6 +25,20 @@ public class Aluno extends Usuario {
     //#endregion
     //#region Methods
     
+    public String dadosAluno() {
+        return super.dadosUsuario() + "\nMatricula: " + matricula;
+    }
     //#endregion
-    
+    //#region String Manipulation
+    @Override
+    public String toString() {
+        return nome + ", " + email +  ", " + senha;
+    }
+
+    public static Aluno fromString(String linha) {
+        String[] dadosAluno = linha.split(", ");
+
+        return new Aluno(dadosAluno[0], dadosAluno[1], Integer.parseInt(dadosAluno[2]), dadosAluno[3]);
+    }
+    //#endregion
 }

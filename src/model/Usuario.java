@@ -48,6 +48,9 @@ public abstract class Usuario {
     //#endregion
     //#region Methods
     
+    public String dadosUsuario() {
+        return "Nome: " + nome + "\nEmail: " + email + "\nSenha: " + senha;
+    }
     //#endregion
     //#region String Manipulation
     @Override

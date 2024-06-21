@@ -27,11 +27,19 @@ public class Professor extends Usuario {
     //#endregion
     //#region Methods
     
+    public String dadosProfessor() {
+        return super.dadosUsuario() + "\nMatricula: " + registro;
+    }
     //#endregion
     //#region String Manipulation
     @Override
     public String toString() {
         return super.toString() + ", " + registro;
+    }
+    public static Professor fromString(String linha) {
+        String[] dadosProfessor = linha.split(", ");
+
+        return new Professor(dadosProfessor[0], dadosProfessor[1], Integer.parseInt(dadosProfessor[2]), dadosProfessor[3]);
     }
     //#endregion
 }
