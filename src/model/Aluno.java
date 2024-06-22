@@ -32,13 +32,13 @@ public class Aluno extends Usuario {
     //#region String Manipulation
     @Override
     public String toString() {
-        return nome + ", " + email +  ", " + senha;
+        return super.toString() + ", " + matricula;
     }
 
     public static Aluno fromString(String linha) {
         String[] dadosAluno = linha.split(", ");
 
-        return new Aluno(dadosAluno[0], dadosAluno[1], Integer.parseInt(dadosAluno[2]), dadosAluno[3]);
+        return new Aluno(dadosAluno[0], dadosAluno[1], dadosAluno[2], Integer.parseInt(dadosAluno[3]));
     }
     //#endregion
 }

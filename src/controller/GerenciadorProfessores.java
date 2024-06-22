@@ -33,7 +33,7 @@ public class GerenciadorProfessores {
     }
     //#endregion
     //#region ArrayList Manipulation
-    public static void adicionarProfessore(Professor professor) {
+    public static void adicionarProfessor(Professor professor) {
         listaProfessores.add(professor);
     }
 

@@ -1,5 +1,10 @@
 package view;
-
+//#region Import
+import controller.*;
+import main.*;
+import model.*;
+import view.*;
+//#endregion
 public class Sistema {
 
     public static void executar(){
@@ -88,13 +93,13 @@ public class Sistema {
                 break;
             case 1:
                 System.out.print("\nMatrícula: ");
-                String matricula = Console.lerString();
+                int matricula = Console.lerString();
                 Aluno aluno = new Aluno(nome, email, senha, matricula);
                 GerenciadorAlunos.adicionarAluno(aluno);
                 break;
             case 2: 
                 System.out.print("\nRegistro: ");
-                String registro = Console.lerString();
+                int registro = Console.lerString();
                 Professor professor = new Professor(nome, email, senha, registro);
                 GerenciadorProfessores.adicionarProfessor(professor);
                 break;
@@ -130,23 +135,24 @@ public class Sistema {
     public static void verificarIdentidade(String email) {
         int codigo = Console.gerarCodigoVerificacao();
         int codigoDigitado;
-        int tentativas = 0;
+        int tentativas = 1;
         // enviar código para o email digitado
         System.out.println("\nCódigo de Verificação foi enviado para seu email");
         do {
             System.out.print("\n\nDigite o código recebido: ");
             codigoDigitado = Console.lerInt();
-            if (codigoDigitado == codigo || tentativas > 3) {
+            if (codigoDigitado == codigo || tentativas > 2) {
                 break;
             }
             tentativas+=1;
             System.out.println("Código Inválido");
         } while (true);
         
-        if (tentativas > 3) {
+        if (tentativas >= 3) {
             System.out.println("\nCódigo Inválido 3 vezes!");
             System.out.println("Conta bloqueada, por motivos de segurança enviar email para suporte@cursosUP.com.br");
             finalizar();
+            return;
         }
 
         System.out.println("\nVerificação Concluída!");
