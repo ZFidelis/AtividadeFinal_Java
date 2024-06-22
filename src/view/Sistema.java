@@ -13,7 +13,7 @@ public class Sistema {
             GerenciadorAlunos.carregarAlunos();
             GerenciadorProfessores.carregarProfessores();
             System.out.println("\nDados carregados com sucesso!");
-            System.out.println("Programa Iniciado!\n\n");
+            System.out.println("Programa Iniciado!");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
