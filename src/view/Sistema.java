@@ -6,6 +6,10 @@ import model.*;
 import view.*;
 //#endregion
 public class Sistema {
+
+    public static void executar(){
+        inicializar();
+    }
     //#region unique execution
     public static void inicializar() {
         try {
