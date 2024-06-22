@@ -7,7 +7,7 @@ import java.io.*;
 import java.util.ArrayList;
 //#endregion
 public class GerenciadorAlunos {
-    private static final File ALUNO_REGISTRADOS = new File("src/database/alunos.txt");
+    private static final File ALUNOS_REGISTRADOS = new File("src/database/alunos.txt");
     
     private static ArrayList<Aluno> listaAlunos = new ArrayList<>();
 
