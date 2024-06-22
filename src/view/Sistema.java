@@ -1,6 +1,10 @@
 package view;
 
 public class Sistema {
+
+    public static void executar(){
+        inicializar();
+    }
     //#region unique execution
     public static void inicializar() {
         try {

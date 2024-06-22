@@ -39,7 +39,7 @@ public class GerenciadorProfessores {
 
     public static void listarProfessores() {
         for (Professor professor : listaProfessores) {
-            System.out.println(professor.dadosProfessore());
+            System.out.println(professor.dadosProfessor());
         }
     }
 
