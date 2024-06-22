@@ -89,13 +89,13 @@ public class Sistema {
                 break;
             case 1:
                 System.out.print("\nMatrícula: ");
-                int matricula = Console.lerString();
+                int matricula = Console.lerInt();
                 Aluno aluno = new Aluno(nome, email, senha, matricula);
                 GerenciadorAlunos.adicionarAluno(aluno);
                 break;
             case 2: 
                 System.out.print("\nRegistro: ");
-                int registro = Console.lerString();
+                int registro = Console.lerInt();
                 Professor professor = new Professor(nome, email, senha, registro);
                 GerenciadorProfessores.adicionarProfessor(professor);
                 break;
