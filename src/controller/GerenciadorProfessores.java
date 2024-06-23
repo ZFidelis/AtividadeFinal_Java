@@ -26,24 +26,30 @@ public class GerenciadorProfessores {
 
     public static void manterProfessores() throws IOException {
         for (Professor professor : listaProfessores) {
-            try(FileWriter fw = new FileWriter(PROFESSORES_REGISTRADOS, true);BufferedWriter bw = new BufferedWriter(fw)) {
+            try(FileWriter fw = new FileWriter(PROFESSORES_REGISTRADOS);BufferedWriter bw = new BufferedWriter(fw)) {
                 bw.write(professor + "\n");
             }
         }
     }
     //#endregion
     //#region ArrayList Manipulation
-    public static void adicionarProfessore(Professor professor) {
+    public static void adicionarProfessor(Professor professor) {
         listaProfessores.add(professor);
     }
 
     public static void listarProfessores() {
         for (Professor professor : listaProfessores) {
-            System.out.println(professor.dadosProfessore());
+            System.out.println(professor.dadosProfessor());
         }
     }
 
-    public static void buscarProfessores() {}
+    public static Professor buscarProfessor(int registro ) {
+        for (Professor professor : listaProfessores) {
+            if (professor.getRegistro() == registro) {
+                return professor;
+            }
+        }
+    }
 
 
     public static ArrayList<Professor> getListaProfessores() {

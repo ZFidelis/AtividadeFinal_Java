@@ -7,7 +7,7 @@ import java.io.*;
 import java.util.ArrayList;
 //#endregion
 public class GerenciadorAlunos {
-    private static final File ALUNO_REGISTRADOS = new File("src/database/alunos.txt");
+    private static final File ALUNOS_REGISTRADOS = new File("src/database/alunos.txt");
     
     private static ArrayList<Aluno> listaAlunos = new ArrayList<>();
 
@@ -26,7 +26,7 @@ public class GerenciadorAlunos {
 
     public static void manterAlunos() throws IOException {
         for (Aluno aluno : listaAlunos) {
-            try(FileWriter fw = new FileWriter(ALUNOS_REGISTRADOS, true);BufferedWriter bw = new BufferedWriter(fw)) {
+            try(FileWriter fw = new FileWriter(ALUNOS_REGISTRADOS);BufferedWriter bw = new BufferedWriter(fw)) {
                 bw.write(aluno + "\n");
             }
         }
@@ -43,8 +43,13 @@ public class GerenciadorAlunos {
         }
     }
 
-    public static void buscarAlunos() {}
-
+    public static Aluno buscarAluno(int matricula ) {
+        for (Aluno aluno : listaAlunos) {
+            if (aluno.getMatricula() == matricula) {
+                return aluno;
+            }
+        }
+    }
 
     public static ArrayList<Aluno> getListaAlunos() {
         return listaAlunos;

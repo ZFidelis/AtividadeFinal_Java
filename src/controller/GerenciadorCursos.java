@@ -26,7 +26,7 @@ public class GerenciadorCursos {
 
     public static void manterCursos() throws IOException {
         for (Curso curso : listaCursos) {
-            try(FileWriter fw = new FileWriter(CURSOS_REGISTRADOS, true);BufferedWriter bw = new BufferedWriter(fw)) {
+            try(FileWriter fw = new FileWriter(CURSOS_REGISTRADOS);BufferedWriter bw = new BufferedWriter(fw)) {
                 bw.write(curso + "\n");
             }
         }
@@ -43,8 +43,13 @@ public class GerenciadorCursos {
         }
     }
 
-    public static void buscarCursos() {}
-
+    public static Curso buscarCursos(String tituloCurso ) {
+        for (Curso curso : listaCursos) {
+            if (curso.getTitulo() == tituloCurso) {
+                return curso;
+            }
+        }
+    }
 
     public static ArrayList<Curso> getListaCursos() {
         return listaCursos;
