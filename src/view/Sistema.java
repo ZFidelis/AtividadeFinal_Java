@@ -142,28 +142,10 @@ public class Sistema {
     }
 
     public static void passChange() {
-    System.out.print("\nE-mail: ");
-    String email = Console.lerString();
-
-    // Verificar se o e-mail está registrado em alunos ou professores
-    boolean emailEncontrado = GerenciadorAlunos.getAlunos().stream()
-        .anyMatch(aluno -> aluno.getEmail().equalsIgnoreCase(email))
-        || GerenciadorProfessores.getProfessores().stream()
-        .anyMatch(professor -> professor.getEmail().equalsIgnoreCase(email));
-
-    if (!emailEncontrado) {
-        System.out.println("\nEste e-mail não está registrado no sistema.");
-        return;
+        System.out.print("E-mail: ");
+        String email = Console.lerString();
+        verificarIdentidade(email);
     }
-
-    if (verificarIdentidade(email)) {
-        System.out.println("\nInsira sua nova senha:");
-        String novaSenha = Console.lerString();
-        System.out.println("Senha alterada com sucesso!");
-    } else {
-        System.out.println("\nNão foi possível verificar sua identidade. Tente novamente mais tarde.");
-    }
-        
     //#endregion
    
     public static void cadastrarUsuario(int op, String nome, String email, String senha) {
