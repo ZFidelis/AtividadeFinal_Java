@@ -164,8 +164,6 @@ public class Sistema {
     }
 
     public class ConfiguracaoSenha {
-
-        // Definindo a senha do administrador diretamente como um número inteiro
         private static int senhaAdministrador = 34532;
     
         public static int getSenhaAdministrador() {
