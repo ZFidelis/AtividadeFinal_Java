@@ -262,6 +262,26 @@ public class Sistema {
         }
     }
 
+public static void direcionarMenuAluno() {
+        menuAluno();
+        int opcao = Console.lerInt();
+
+        switch (opcao) {
+            case 1:
+                listarMeusCursos();
+                break;
+            case 2:
+                entrarEmCurso();
+                break;
+            case 0:
+                finalizar();
+                break;
+            default:
+                System.out.println("Opção inválida!");
+                break;
+        }
+    }
+
     public static void alterarDadosProfessor(Professor professor){
        
         int opcao = Console.lerInt();
