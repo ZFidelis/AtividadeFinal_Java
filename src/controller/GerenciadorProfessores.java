@@ -51,7 +51,6 @@ public class GerenciadorProfessores {
         }
     }
 
-
     public static ArrayList<Professor> getListaProfessores() {
         return listaProfessores;
     }
