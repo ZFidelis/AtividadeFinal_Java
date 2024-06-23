@@ -279,7 +279,7 @@ public class Sistema {
 
         switch (opcao) {
             case 1:
-                listarMeusCursos();
+                listarCursos();
                 break;
             case 2:
                 entrarEmCurso();
