@@ -115,6 +115,16 @@ public class Sistema {
         System.out.println("0) Sair");
         System.out.print("Sua opção: ");
     }
+    public static void menuAlterarDadosProfessor(){
+        
+        System.out.println("\nALTERAR DADOS DO PROFESSOR");
+        System.out.println("1) Alterar Nome");
+        System.out.println("2) Alterar Registro");
+        System.out.println("3) Alterar Senha");
+        System.out.println("0) Voltar");
+        System.out.print("Sua opção: ");
+    }
+
 
     //#endregion
     //#region Cadastros
@@ -252,6 +262,35 @@ public class Sistema {
         }
     }
 
+    public static void alterarDadosProfessor(Professor professor){
+       
+        int opcao = Console.lerInt();
+        switch (opcao) {
+            case 1:
+                System.out.print("Novo nome: ");
+                String novoNome = Console.lerString();
+                professor.alterarNome(novoNome);
+                System.out.println("Nome alterado com sucesso!");
+                break;
+            case 2:
+                System.out.print("Novo registro: ");
+                int novoRegistro = Console.lerInt();
+                professor.alterarRegistro(novoRegistro);
+                System.out.println("Registro alterado com sucesso!");
+                break;
+            case 3:
+                System.out.print("Nova senha: ");
+                String novaSenha = Console.lerString();
+                professor.alterarSenha(novaSenha);
+                System.out.println("Senha alterada com sucesso!");
+                break;
+            case 0:
+                break;
+            default:
+                System.out.println("Opção inválida!");
+                break;
+        }
+    }
 
 
 
