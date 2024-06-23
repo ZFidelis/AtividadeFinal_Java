@@ -5,9 +5,10 @@ package main;
 import view.*;
 //#endregion
 
-public class Main {
-    public static void main(String[] args) {
-        int val = Console.gerarCodigoVerificacao();
-        System.out.println(val);
+public class Main { 
+    public static void main(String[] args) throws Exception {
+        
+        Sistema.executar();
+
     }
 }
