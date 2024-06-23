@@ -57,9 +57,11 @@ public class Sistema {
         System.out.println("\nPLATAFORMA DO ADM");
         System.out.println("1) Excluir Curso");
         System.out.println("2) Excluir Aluno");
-        System.out.println("3) Menu Professor");
-        System.out.println("4) Menu Aluno");
-        System.out.println("5) Alterar Dados");
+        System.out.println("3) Excluir Professor");
+        System.out.println("4) Menu Professor");
+        System.out.println("5) Menu Aluno");
+        System.out.println("6) Alterar meus Dados");
+        System.out.println("7) Alterar Dados de Aluno");
         System.out.println("0) Sair");
         System.out.print("Sua opção: ");
     }
@@ -96,6 +98,23 @@ public class Sistema {
         System.out.print("Sua opção: ");
     }
 
+    public static void menuAlterarDadosAdm() {
+        System.out.println("\nALTERAR DADOS DE ADM");
+        System.out.println("1) Alterar Nome");
+        System.out.println("2) Alterar Senha");
+        System.out.println("3) Alterar Nível de Acesso");
+        System.out.println("0) Sair");
+        System.out.print("Sua opção: ");
+    }
+
+    public static void menuAlterarDadosAluno() {
+        System.out.println("\nALTERAR DADOS DE ALUNO");
+        System.out.println("1) Alterar Nome");
+        System.out.println("2) Alterar Senha");
+        System.out.println("3) Alterar Matrícula");
+        System.out.println("0) Sair");
+        System.out.print("Sua opção: ");
+    }
 
     //#endregion
     //#region Cadastros
@@ -154,6 +173,14 @@ public class Sistema {
         Aluno aluno = GerenciadorAlunos.buscarAluno(alunoNome);
 
         GerenciadorAlunos.excluirAluno(aluno);
+    }
+
+    public static void excluirProfessor() {
+        System.out.print("\nDigite o nome do Professor que deseja Excluir: ");
+        String professorNome = Console.lerString();
+        Professor professor = GerenciadorProfessores.buscarProfessor(professorNome);
+
+        GerenciadorProfessores.excluirProfessor(professor);
     }
 
     public static void passChange() {
