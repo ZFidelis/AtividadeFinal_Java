@@ -1,4 +1,6 @@
 package view;
+import java.io.IOException;
+
 //#region Import
 import controller.*;
 import main.*;
@@ -50,15 +52,69 @@ public class Sistema {
         System.out.println("0) Cancelar");
         System.out.print("Sua opção: ");
     }
-    //#endregion
-    //#region Initial Page
-    public static void signIn() {
-        System.out.print("\nE-mail: ");
-        String email = Console.lerString();
-        System.out.print("Senha: ");
-        String senha = Console.lerString();
-        verificarIdentidade(email);
 
+    public static void menuAdm() {
+        System.out.println("\nPLATAFORMA DO ADM");
+        System.out.println("1) Excluir Curso");
+        System.out.println("2) Excluir Aluno");
+        System.out.println("3) Menu Professor");
+        System.out.println("4) Menu Aluno");
+        System.out.println("5) Alterar Dados");
+        System.out.println("0) Sair");
+        System.out.print("Sua opção: ");
+    }
+
+    public static void menuProfessor() {
+        System.out.println("\nPLATAFORMA DO PROFESSOR");
+        System.out.println("1) Cadastrar Curso");
+        System.out.println("2) Ver meus Cursos");
+        System.out.println("3) Alterar Dados");
+        System.out.println("0) Sair");
+        System.out.print("Sua opção: ");
+    }
+
+    public static void menuAluno() {
+        System.out.println("\nPLATAFORMA DO ALUNO");
+        System.out.println("1) Ver meus Cursos");
+        System.out.println("2) Entrar em algum Curso");
+        System.out.println("3) Alterar Dados");
+        System.out.println("0) Sair");
+        System.out.print("Sua opção: ");
+    }
+
+    public static void menuCursoProfessor() {
+        System.out.println("\nMENU DE CURSOS DO PROFESSOR");
+        System.out.println("1) Selecionar Curso");
+        System.out.println("0) Sair");
+        System.out.print("Sua opção: ");
+    }
+
+    public static void menuEditarCurso() {
+        System.out.println("\nEDITAR CURSO");
+        System.out.println("1) Remover Aluno do Curso");
+        System.out.println("2) Alterar Dados do Curso");
+        System.out.println("0) Sair");
+        System.out.print("Sua opção: ");
+    }
+
+
+    //#endregion
+    //#region Cadastros
+    public static void CadastrarCurso() {
+        System.out.println("\nNovo Curso:");
+        System.out.print("Informe o título: ");
+        String titulo = Console.lerString();
+        System.out.print("Informe a Descrição: ");
+        String descricao = Console.lerString();
+        System.out.print("Informe a Duração: ");
+        int duracao = Console.lerInt();
+        System.out.print("Informe seu Nome: ");
+        String nomeProfessor = Console.lerString();
+        Curso curso = new Curso(titulo, descricao, duracao, nomeProfessor);
+
+        GerenciadorCursos.adicionarCurso(curso);
+
+        System.out.println("\nCurso Criado com sucesso");
     }
 
     public static void signUp() {
@@ -72,6 +128,16 @@ public class Sistema {
         menuTiposCadastro();
         int op = Console.lerInt();
         cadastrarUsuario(op,nome,email,senha);
+
+    }
+    ////#endregion
+    //#region Initial Page
+    public static void signIn() {
+        System.out.print("\nE-mail: ");
+        String email = Console.lerString();
+        System.out.print("Senha: ");
+        String senha = Console.lerString();
+        verificarIdentidade(email);
 
     }
 
@@ -134,6 +200,7 @@ public class Sistema {
         int tentativas = 1;
         // enviar código para o email digitado
         System.out.println("\nCódigo de Verificação foi enviado para seu email");
+        System.out.println("Seu código: " + codigo);
         do {
             System.out.print("\n\nDigite o código recebido: ");
             codigoDigitado = Console.lerInt();
