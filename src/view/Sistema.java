@@ -9,6 +9,20 @@ import view.*;
 //#endregion
 public class Sistema {
     //#region unique execution
+
+    public static void executar() {
+        inicializar();
+
+        int op;
+
+        do {
+            menuPrincipal();
+            op = Console.lerInt();
+            direcionarOpcaoPrincipal(op);
+        } while (op != 0);
+
+    }
+
     public static void inicializar() {
         try {
             GerenciadorCursos.carregarCursos();
@@ -124,8 +138,6 @@ public class Sistema {
         System.out.println("0) Voltar");
         System.out.print("Sua opção: ");
     }
-
-
     //#endregion
     //#region Cadastros
     public static void CadastrarCurso() {
@@ -261,8 +273,7 @@ public class Sistema {
                 break;
         }
     }
-
-public static void direcionarMenuAluno() {
+    public static void direcionarMenuAluno() {
         menuAluno();
         int opcao = Console.lerInt();
 
@@ -311,8 +322,6 @@ public static void direcionarMenuAluno() {
                 break;
         }
     }
-
-
 
     public static void verificarIdentidade(String email) {
         int codigo = Console.gerarCodigoVerificacao();
