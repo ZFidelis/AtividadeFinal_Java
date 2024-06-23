@@ -323,6 +323,28 @@ public class Sistema {
         }
     }
 
+    public static void verMeusCursos(Professor professor) {
+        System.out.println("\nMEUS CURSOS");
+        
+        ArrayList<Curso> cursosDoProfessor = new ArrayList<>();
+    
+        for (Curso curso : GerenciadorCursos.getListaCursos()) {
+            if (curso.getNomeProfessor().equals(professor.getNome())) {
+                cursosDoProfessor.add(curso);
+            }
+        }
+        
+        if (cursosDoProfessor.isEmpty()) {
+            System.out.println("Você não está associado a nenhum curso.");
+        } else {
+            for (Curso curso : cursosDoProfessor) {
+                System.out.println(curso.dadosCurso());
+            }
+        }
+    }
+  
+
+
     public static void verificarIdentidade(String email) {
         int codigo = Console.gerarCodigoVerificacao();
         int codigoDigitado;
