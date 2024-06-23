@@ -77,7 +77,6 @@ public class Sistema {
         System.out.println("\nPLATAFORMA DO ALUNO");
         System.out.println("1) Ver meus Cursos");
         System.out.println("2) Entrar em algum Curso");
-        System.out.println("3) Alterar Dados");
         System.out.println("0) Sair");
         System.out.print("Sua opção: ");
     }
