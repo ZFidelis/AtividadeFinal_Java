@@ -162,6 +162,16 @@ public class Sistema {
         String email = Console.lerString();
         verificarIdentidade(email);
     }
+
+    public class ConfiguracaoSenha {
+
+        // Definindo a senha do administrador diretamente como um número inteiro
+        private static int senhaAdministrador = 34532;
+    
+        public static int getSenhaAdministrador() {
+            return senhaAdministrador;
+        }
+    }
     //#endregion
    
     public static void cadastrarUsuario(int op, String nome, String email, String senha) {
@@ -175,15 +185,26 @@ public class Sistema {
                 Aluno aluno = new Aluno(nome, email, senha, matricula);
                 GerenciadorAlunos.adicionarAluno(aluno);
                 break;
-            case 2: 
+            case 2:
                 System.out.print("\nRegistro: ");
                 int registro = Console.lerInt();
                 Professor professor = new Professor(nome, email, senha, registro);
                 GerenciadorProfessores.adicionarProfessor(professor);
                 break;
             case 3:
-                // criar verificação muito segura (happyface)
+                System.out.print("\nDigite a senha de administração: ");
+                String senhaDigitada = Console.lerString();
+        
+                String senhaAdminStr = String.valueOf(ConfiguracaoSenha.getSenhaAdministrador());
+        
+                if (senhaDigitada.equals(senhaAdminStr)) {
+                    System.out.println("Senha correta. Operações administrativas podem ser realizadas.");
+                } else {
+                    System.out.println("Senha de administração incorreta. Ação cancelada.");
+                }
+                break;
             default:
+                System.out.println("Opção inválida. Tente novamente.");
                 break;
         }
     }
