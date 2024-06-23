@@ -24,7 +24,10 @@ public class Aluno extends Usuario {
     }
     //#endregion
     //#region Methods
-    
+    public void entrarCurso(String nomeCurso) {
+        
+    }
+
     public String dadosAluno() {
         return super.dadosUsuario() + "\nMatricula: " + matricula;
     }

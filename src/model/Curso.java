@@ -12,6 +12,7 @@ public class Curso {
     private String descricao;
     private int duracao;
     private String nomeProfessor;
+    private ArrayList<Aluno> alunosInscritos = new ArrayList<>();
 
     //#region Constructors
     public Curso() {
@@ -65,6 +66,13 @@ public class Curso {
     }
     //#endregion
     //#region Methods
+    public void inserirAluno(Aluno aluno) {
+        alunosInscritos.add(aluno);
+    }
+
+    public void deletarAluno(Aluno aluno) {
+        alunosInscritos.remove(aluno);
+    }
 
     public String dadosCurso() {
         return "Título: " + titulo + " (" + duracao + "h)" + "\nDescrição: " + descricao + "\nProfessor: " + nomeProfessor;
@@ -73,7 +81,11 @@ public class Curso {
     //#region String Manipulation
     @Override
     public String toString() {
-        return titulo + ", " + descricao + ", " + duracao + ", " + nomeProfessor;
+        String listaAlunos;
+        for (Aluno aluno : alunosInscritos) {
+            listaAlunos += "; " + aluno.getMatricula();
+        }
+        return titulo + ", " + descricao + ", " + duracao + ", " + nomeProfessor + ", Alunos(RGM) maticulados: " + ;
     }
 
     public static Curso fromString(String linha) {
