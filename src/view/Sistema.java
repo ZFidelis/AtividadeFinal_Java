@@ -164,9 +164,9 @@ public class Sistema {
     }
 
     public class ConfiguracaoSenha {
-        private static int senhaAdministrador = 34532;
+        private static String senhaAdministrador = "adm123";
     
-        public static int getSenhaAdministrador() {
+        public static String getSenhaAdministrador() {
             return senhaAdministrador;
         }
     }
