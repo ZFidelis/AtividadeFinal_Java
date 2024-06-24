@@ -77,6 +77,17 @@ public class Curso {
     public String dadosCurso() {
         return "Título: " + titulo + " (" + duracao + "h)" + "\nDescrição: " + descricao + "\nProfessor: " + nomeProfessor;
     }
+
+    public void adicionarAluno(Aluno aluno) {
+        alunosInscritos.add(aluno);
+    }
+
+    public void mostrarAlunos() {
+        for (Aluno aluno : alunosInscritos) {
+            System.out.println(aluno.dadosAluno());
+            System.out.println();
+        }
+    }
     //#endregion
     //#region String Manipulation
     @Override
@@ -91,7 +102,6 @@ public class Curso {
 
     public static Curso fromString(String linha) {
         String[] dadosCurso = linha.split(", ");
-        // String[] alunosRegistrados = dadosCurso[4].split("; ");
 
         String titulo = dadosCurso[0];
         String descricao = dadosCurso[1];
@@ -99,7 +109,6 @@ public class Curso {
         String nomeProfessor = dadosCurso[3];
 
         ArrayList<Aluno> listaAlunos = new ArrayList<>();
-
         if (dadosCurso.length > 5) {
             String[] alunosRegistrados = dadosCurso[5].split("; ");
             for (String alunoId : alunosRegistrados) {
@@ -110,24 +119,7 @@ public class Curso {
             }
             System.out.println(listaAlunos);
         }
-
         return new Curso(titulo, descricao, duracao, nomeProfessor, listaAlunos);
     }
     //#endregion
-
-    public void adicionarAluno(Aluno aluno) {
-        alunosInscritos.add(aluno);
-    }
-
-    public void mostrarAlunos() {
-
-        for (Aluno aluno : alunosInscritos) {
-            System.out.println(aluno.dadosAluno());
-            System.out.println();
-        }
-    }
-
-
-
-
 }

@@ -8,7 +8,6 @@ import java.util.ArrayList;
 //#endregion
 public class GerenciadorAlunos {
     private static final File ALUNOS_REGISTRADOS = new File("src/database/alunos.txt");
-    
     private static ArrayList<Aluno> listaAlunos = new ArrayList<>();
 
     //#region File Manipulation
@@ -24,8 +23,7 @@ public class GerenciadorAlunos {
         return listaAlunos;
     }
 
-    public static void manterAlunos() throws IOException {
-        
+    public static void manterAlunos() throws IOException {      
         try(FileWriter fw = new FileWriter(ALUNOS_REGISTRADOS);BufferedWriter bw = new BufferedWriter(fw)) {
             for (Aluno aluno : listaAlunos) {
                 bw.write(aluno + "\n");

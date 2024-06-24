@@ -27,6 +27,13 @@ public class Aluno extends Usuario {
     public String dadosAluno() {
         return super.dadosUsuario() + "\nMatricula: " + matricula;
     }
+
+    public void entrarCurso(String curso) {
+        Curso cursoEntrar = GerenciadorCursos.buscarCursos(curso);
+        Aluno esteAluno = new Aluno(this.nome, this.email, this.senha, this.matricula);
+
+        cursoEntrar.adicionarAluno(esteAluno);
+    }   
     //#endregion
     //#region String Manipulation
     @Override
@@ -40,15 +47,4 @@ public class Aluno extends Usuario {
         return new Aluno(dadosAluno[0], dadosAluno[1], dadosAluno[2], Integer.parseInt(dadosAluno[3]));
     }
     //#endregion
-
-
-    public void entrarCurso(String curso) {
-        Curso cursoEntrar = GerenciadorCursos.buscarCursos(curso);
-        Aluno esteAluno = new Aluno(this.nome, this.email, this.senha, this.matricula);
-
-        cursoEntrar.adicionarAluno(esteAluno);
-    }   
-
-
-
 }
