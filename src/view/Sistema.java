@@ -98,6 +98,12 @@ public class Sistema {
         System.out.print("Sua opção: ");
     }
 
+    public static void menuCursoProfessor() {
+        System.out.println("\nMENU DE CURSOS DO PROFESSOR");
+        System.out.println("1) Selecionar Curso");
+        System.out.println("0) Sair");
+        System.out.print("Sua opção: ");
+    }
 
     public static void menuEditarCurso() {
         System.out.println("\nEDITAR CURSO");
@@ -291,7 +297,7 @@ public class Sistema {
 
         switch (opcao) {
             case 1:
-                listarCursos();
+                verMeusCursosAluno();
                 break;
             case 2:
                 entrarEmCurso();
@@ -310,10 +316,10 @@ public class Sistema {
 
         switch (opcao) {
             case 1:
-                listarCursos();
+                CadastrarCurso();
                 break;
             case 2:
-                entrarEmCurso();
+                verMeusCursosProfessor();
                 break;
             case 0:
                 finalizar();
@@ -418,7 +424,7 @@ public class Sistema {
         }
     }
 
-public static void verMeusCursos(Aluno aluno) {
+    public static void verMeusCursosAluno(Aluno aluno) {
         System.out.println("\nMEUS CURSOS");
         ArrayList<Curso> cursosMatriculados = aluno.getCursosMatriculados();
 
@@ -431,7 +437,7 @@ public static void verMeusCursos(Aluno aluno) {
         }
     }
 
-    public static void verMeusCursos(Professor professor) {
+    public static void verMeusCursosProfessor(Professor professor) {
         System.out.println("\nMEUS CURSOS");
         
         ArrayList<Curso> cursosDoProfessor = new ArrayList<>();
@@ -474,6 +480,7 @@ public static void verMeusCursos(Aluno aluno) {
 
         if (!emailAdm) {
             menuAdm();
+            direcionarMenuAdm();
             return;
         }
     }
@@ -482,6 +489,7 @@ public static void verMeusCursos(Aluno aluno) {
         int codigo = Console.gerarCodigoVerificacao();
         int codigoDigitado;
         int tentativas = 1;
+        // enviar código para o email digitado
         System.out.println("\nCódigo de Verificação foi enviado para seu email");
         System.out.println("Seu código: " + codigo);
         do {
