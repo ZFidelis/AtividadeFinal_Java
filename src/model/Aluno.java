@@ -24,13 +24,16 @@ public class Aluno extends Usuario {
     }
     //#endregion
     //#region Methods
-    public void entrarCurso(String nomeCurso) {
-        
-    }
-
     public String dadosAluno() {
         return super.dadosUsuario() + "\nMatricula: " + matricula;
     }
+
+    public void entrarCurso(String curso) {
+        Curso cursoEntrar = GerenciadorCursos.buscarCursos(curso);
+        Aluno esteAluno = new Aluno(this.nome, this.email, this.senha, this.matricula);
+
+        cursoEntrar.adicionarAluno(esteAluno);
+    }   
     //#endregion
     //#region String Manipulation
     @Override
