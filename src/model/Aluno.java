@@ -9,6 +9,7 @@ import view.*;
 
 public class Aluno extends Usuario {
     private int matricula;
+    private List<Curso> cursosMatriculados;
 
     //#region Contructors
     public Aluno(String nome, String email, String senha, int matricula) {
@@ -21,11 +22,28 @@ public class Aluno extends Usuario {
         return matricula;
     }
 
+    public List<Curso> getCursosMatriculados() {
+        return cursosMatriculados;
+    }
+    
+    public List<Curso> setCursosMatriculados() {
+        return cursosMatriculados;
+    }
+
     public void setMatricula(int matricula) {
         this.matricula = matricula;
     }
     //#endregion
     //#region Methods
+    
+     public void adicionarCursoMatriculado(Curso curso) {
+        cursosMatriculados.add(curso);
+    }
+
+    public void removerCursoMatriculado(Curso curso) {
+        cursosMatriculados.remove(curso);
+    }
+    
     public String dadosAluno() {
         return super.dadosUsuario() + "\nMatricula: " + matricula;
     }
