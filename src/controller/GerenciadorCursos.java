@@ -25,11 +25,13 @@ public class GerenciadorCursos {
     }
 
     public static void manterCursos() throws IOException {
-        for (Curso curso : listaCursos) {
-            try(FileWriter fw = new FileWriter(CURSOS_REGISTRADOS);BufferedWriter bw = new BufferedWriter(fw)) {
+        
+        try(FileWriter fw = new FileWriter(CURSOS_REGISTRADOS);BufferedWriter bw = new BufferedWriter(fw)) {
+            for (Curso curso : listaCursos) {
                 bw.write(curso + "\n");
             }
         }
+        
     }
     //#endregion
     //#region ArrayList Manipulation
@@ -43,12 +45,13 @@ public class GerenciadorCursos {
         }
     }
 
-    public static Curso buscarCursos(String tituloCurso ) {
+    public static Curso buscarCursos(String tituloCurso) {
         for (Curso curso : listaCursos) {
-            if (curso.getTitulo() == tituloCurso) {
+            if (curso.getTitulo().equals(tituloCurso)) {
                 return curso;
             }
         }
+        return null;
     }
 
     public static ArrayList<Curso> getListaCursos() {

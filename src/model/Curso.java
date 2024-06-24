@@ -31,6 +31,14 @@ public class Curso {
         this.duracao = duracao;
         this.nomeProfessor = nomeProfessor;
     }
+
+    public Curso(String titulo, String descricao, int duracao, String nomeProfessor, ArrayList<Aluno> alunosRegistrados) {
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.duracao = duracao;
+        this.nomeProfessor = nomeProfessor;
+        this.alunosInscritos = alunosRegistrados;
+    }
     //#endregion
     //#region Getter & Setters
     public String getTitulo() {
@@ -66,14 +74,6 @@ public class Curso {
     }
     //#endregion
     //#region Methods
-    public void inserirAluno(Aluno aluno) {
-        alunosInscritos.add(aluno);
-    }
-
-    public void deletarAluno(Aluno aluno) {
-        alunosInscritos.remove(aluno);
-    }
-
     public String dadosCurso() {
         return "Título: " + titulo + " (" + duracao + "h)" + "\nDescrição: " + descricao + "\nProfessor: " + nomeProfessor;
     }
@@ -81,17 +81,53 @@ public class Curso {
     //#region String Manipulation
     @Override
     public String toString() {
-        String listaAlunos;
+        String matriculasAlunos = "";
         for (Aluno aluno : alunosInscritos) {
-            listaAlunos += "; " + aluno.getMatricula();
+            matriculasAlunos += aluno.getMatricula() + "; ";
         }
-        return titulo + ", " + descricao + ", " + duracao + ", " + nomeProfessor + ", Alunos(RGM) maticulados: " + ;
+
+        return titulo + ", " + descricao + ", " + duracao + ", " + nomeProfessor + ", Alunos Matriculados, " + matriculasAlunos;
     }
 
     public static Curso fromString(String linha) {
         String[] dadosCurso = linha.split(", ");
+        // String[] alunosRegistrados = dadosCurso[4].split("; ");
 
-        return new Curso(dadosCurso[0], dadosCurso[1], Integer.parseInt(dadosCurso[2]), dadosCurso[3]);
+        String titulo = dadosCurso[0];
+        String descricao = dadosCurso[1];
+        int duracao = Integer.parseInt(dadosCurso[2]);
+        String nomeProfessor = dadosCurso[3];
+
+        ArrayList<Aluno> listaAlunos = new ArrayList<>();
+
+        if (dadosCurso.length > 5) {
+            String[] alunosRegistrados = dadosCurso[5].split("; ");
+            for (String alunoId : alunosRegistrados) {
+                System.out.println(Integer.parseInt(alunoId));
+                Aluno tempAluno = GerenciadorAlunos.buscarAluno(Integer.parseInt(alunoId));
+                System.out.println(tempAluno);
+                listaAlunos.add(tempAluno);
+            }
+            System.out.println(listaAlunos);
+        }
+
+        return new Curso(titulo, descricao, duracao, nomeProfessor, listaAlunos);
     }
     //#endregion
+
+    public void adicionarAluno(Aluno aluno) {
+        alunosInscritos.add(aluno);
+    }
+
+    public void mostrarAlunos() {
+
+        for (Aluno aluno : alunosInscritos) {
+            System.out.println(aluno.dadosAluno());
+            System.out.println();
+        }
+    }
+
+
+
+
 }

@@ -25,8 +25,9 @@ public class GerenciadorAlunos {
     }
 
     public static void manterAlunos() throws IOException {
-        for (Aluno aluno : listaAlunos) {
-            try(FileWriter fw = new FileWriter(ALUNOS_REGISTRADOS);BufferedWriter bw = new BufferedWriter(fw)) {
+        
+        try(FileWriter fw = new FileWriter(ALUNOS_REGISTRADOS);BufferedWriter bw = new BufferedWriter(fw)) {
+            for (Aluno aluno : listaAlunos) {
                 bw.write(aluno + "\n");
             }
         }
@@ -49,6 +50,7 @@ public class GerenciadorAlunos {
                 return aluno;
             }
         }
+        return null;
     }
 
     public static ArrayList<Aluno> getListaAlunos() {
