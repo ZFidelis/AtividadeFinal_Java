@@ -27,6 +27,8 @@ public class Professor extends Usuario {
     //#endregion
     //#region Methods
     
+
+    //Metodo alterar dados Professor
     public String dadosProfessor() {
         return super.dadosUsuario() + "\nMatricula: " + registro;
     }
