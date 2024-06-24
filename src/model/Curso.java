@@ -81,11 +81,11 @@ public class Curso {
     //#region String Manipulation
     @Override
     public String toString() {
-        String listaAlunos;
+        String listaAlunos = "";
         for (Aluno aluno : alunosInscritos) {
             listaAlunos += "; " + aluno.getMatricula();
         }
-        return titulo + ", " + descricao + ", " + duracao + ", " + nomeProfessor + ", Alunos(RGM) maticulados: " + ;
+        return titulo + ", " + descricao + ", " + duracao + ", " + nomeProfessor + ", Alunos(RGM) maticulados: ";
     }
 
     public static Curso fromString(String linha) {

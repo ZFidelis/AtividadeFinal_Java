@@ -32,5 +32,16 @@ public class Administrador extends Usuario {
 
     }
     //#endregion
+    //#region String Manipulation
+    @Override
+    public String toString() {
+        return super.toString() + ", " + nivelAcesso;
+    }
 
+    public static Administrador fromString(String linha) {
+        String[] dadosAdministrador = linha.split(", ");
+
+        return new Administrador(dadosAdministrador[0], dadosAdministrador[1], dadosAdministrador[2], Integer.parseInt(dadosAdministrador[3]));
+    }
+    //#endregion
 }
