@@ -457,39 +457,41 @@ public class Sistema {
         }
     }
   
-    public static void verificarTipoUsuario(){
+public static void verificarTipoUsuario(String email) {
         boolean emailAluno = GerenciadorAlunos.getAlunos().stream()
-        .anyMatch(aluno -> aluno.getEmail().equalsIgnoreCase(email));
-
+            .anyMatch(aluno -> aluno.getEmail().equalsIgnoreCase(email));
+    
         boolean emailProfessor = GerenciadorProfessores.getProfessores().stream()
-        .anyMatch(professor -> professor.getEmail().equalsIgnoreCase(email));
-
-        boolean emailAdm = GerenciadorAdministradores.getAdministradores().stream()
-        .anyMatch(administrador -> administrador.getEmail().equalsIgnoreCase(email));
-
-        if (!emailAluno) {
+            .anyMatch(professor -> professor.getEmail().equalsIgnoreCase(email));
+    
+        boolean emailAdm = GerenciadorAdministradores.getListaAdministradores().stream()
+            .anyMatch(administrador -> administrador.getEmail().equalsIgnoreCase(email));
+    
+        if (emailAluno) {
             menuAluno();
             direcionarMenuAluno();
             return;
         }
-
-        if (!emailProfessor) {
+    
+        if (emailProfessor) {
             menuProfessor();
             return;
         }
-
-        if (!emailAdm) {
+    
+        if (emailAdm) {
             menuAdm();
             direcionarMenuAdm();
             return;
         }
+    
+        System.out.println("Usuário não encontrado.");
     }
 
     public static boolean verificarIdentidade(String email) {
         int codigo = Console.gerarCodigoVerificacao();
         int codigoDigitado;
         int tentativas = 1;
-        // enviar código para o email digitado
+
         System.out.println("\nCódigo de Verificação foi enviado para seu email");
         System.out.println("Seu código: " + codigo);
         do {
@@ -498,19 +500,20 @@ public class Sistema {
             if (codigoDigitado == codigo || tentativas > 2) {
                 break;
             }
-            tentativas+=1;
+            tentativas += 1;
             System.out.println("Código Inválido");
         } while (true);
-        
+    
         if (tentativas >= 3) {
             System.out.println("\nCódigo Inválido 3 vezes!");
             System.out.println("Conta bloqueada, por motivos de segurança enviar email para suporte@cursosUP.com.br");
             finalizar();
             return false;
         }
-
+    
         System.out.println("\nVerificação Concluída!");
-
+    
         verificarTipoUsuario(email);
+        return true;
     }
 }
