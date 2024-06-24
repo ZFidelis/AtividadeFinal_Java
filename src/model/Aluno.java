@@ -7,7 +7,6 @@ import view.*;
 
 public class Aluno extends Usuario {
     private int matricula;
-    private List<Curso> cursosMatriculados;
 
     //#region Contructors
     public Aluno(String nome, String email, String senha, int matricula) {
@@ -24,26 +23,9 @@ public class Aluno extends Usuario {
         this.matricula = matricula;
     }
     
-    public List<Curso> getCursosMatriculados() {
-        return cursosMatriculados;
-    }
-    
-    public List<Curso> setCursosMatriculados() {
-        return cursosMatriculados;
-    }
-    
     //#endregion
     //#region Methods
-    
-     public void adicionarCursoMatriculado(Curso curso) {
-        cursosMatriculados.add(curso);
-    }
-
-    public void removerCursoMatriculado(Curso curso) {
-        cursosMatriculados.remove(curso);
-    }
-
-    
+      
     public void entrarCurso(String nomeCurso) {
         
     }
