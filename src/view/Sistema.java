@@ -485,7 +485,7 @@ public class Sistema {
         }
     }
 
-    public static void verificarIdentidade(String email) {
+    public static boolean verificarIdentidade(String email) {
         int codigo = Console.gerarCodigoVerificacao();
         int codigoDigitado;
         int tentativas = 1;
@@ -506,7 +506,7 @@ public class Sistema {
             System.out.println("\nCódigo Inválido 3 vezes!");
             System.out.println("Conta bloqueada, por motivos de segurança enviar email para suporte@cursosUP.com.br");
             finalizar();
-            return;
+            return false;
         }
 
         System.out.println("\nVerificação Concluída!");
