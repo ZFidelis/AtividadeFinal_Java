@@ -1,1 +1,2 @@
-isaac, isaac, fidelis, 123
+isaac, Isaac Fidelis, senhaSegura, 123
+henry, Henry Karasawa, senhaMuitoSegura, 132

@@ -1,1 +1,2 @@
-Design Software, Aula sobre design de software, 230, O Melhor, Alunos Matriculados, 123; 
+Desenvolvimento de Software, Aulas com foco em desenvolver softwares usando Java como linguagem principal, 220, jason, Alunos Matriculados, 123
+Design de Software, Aulas com foco em documentação de software, 220, evandro, Alunos Matriculados, 132;

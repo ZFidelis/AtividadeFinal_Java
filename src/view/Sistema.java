@@ -137,21 +137,20 @@ public class Sistema {
     }
     //#endregion
     //#region Cadastros
-    public static void CadastrarCurso() {
-        System.out.println("\nNovo Curso:");
+    public static void cadastrarCurso(Professor professor) {
+        System.out.println("\nCADASTRO DE CURSOS");
         System.out.print("Informe o título: ");
         String titulo = Console.lerString();
         System.out.print("Informe a Descrição: ");
         String descricao = Console.lerString();
-        System.out.print("Informe a Duração: ");
+        System.out.print("Informe a Duração(apenas números): ");
         int duracao = Console.lerInt();
-        System.out.print("Informe seu Nome: ");
-        String nomeProfessor = Console.lerString();
+        String nomeProfessor = professor.getNome();
         Curso curso = new Curso(titulo, descricao, duracao, nomeProfessor);
 
         GerenciadorCursos.adicionarCurso(curso);
 
-        System.out.println("\nCurso Criado com sucesso");
+        System.out.println("\nCurso Criado com sucesso!!");
     }
 
     public static void signUp() {
@@ -206,7 +205,7 @@ public class Sistema {
         System.out.print("\nE-mail: ");
         String email = Console.lerString();
 
-        // Verificar se o e-mail está registrado em alunos ou professores
+        // Verificar se o e-mail está registrado
         boolean emailEncontrado = GerenciadorAlunos.getAlunos().stream()
             .anyMatch(aluno -> aluno.getEmail().equalsIgnoreCase(email))
             || GerenciadorProfessores.getProfessores().stream()
@@ -220,6 +219,7 @@ public class Sistema {
         if (verificarIdentidade(email)) {
             System.out.println("\nInsira sua nova senha:");
             String novaSenha = Console.lerString();
+
             System.out.println("Senha alterada com sucesso!");
         } else {
             System.out.println("\nNão foi possível verificar sua identidade. Tente novamente mais tarde.");
@@ -286,19 +286,13 @@ public class Sistema {
         }
     }
     
-    public static void direcionarMenuAluno(int opcao, String email) {
+    public static void direcionarMenuAluno(int opcao, String email) { // apenas falta voltar para o menuAluno() e alteração de dados
         Aluno usuario = GerenciadorAlunos.buscarAluno(email);
         ArrayList<Curso> cursosMatriculados = new ArrayList<>();
-        
+
         switch (opcao) {
             case 1:
-                cursosMatriculados = usuario.getCursosMatriculados();
-                if (cursosMatriculados.isEmpty()) {
-                    System.out.println("\nVocê não entrou em nenhum curso!"); // tentar voltar para o menuAluno()
-                }
-                for (Curso curso : cursosMatriculados) {
-                    System.out.println(curso.dadosCurso()); // tentar voltar para o menuAluno()
-                }
+                verMeusCursosAluno(usuario); // tentar voltar para o menuAluno()
                 break;
             case 2:
                 GerenciadorCursos.listarCursos();
@@ -318,13 +312,14 @@ public class Sistema {
         }
     }
     
-    public static void direcionarMenuProfessor(int opcao, String email) {
+    public static void direcionarMenuProfessor(int opcao, String email) { // apenas falta voltar para o menuProfessor() e alteração de dados
+        Professor usuario = GerenciadorProfessores.buscarProfessor(email);
         switch (opcao) {
             case 1:
-                CadastrarCurso();
+                cadastrarCurso(usuario);
                 break;
             case 2:
-                verMeusCursosProfessor();
+                verMeusCursosProfessor(usuario);
                 break;
             case 0:
                 break;
@@ -429,32 +424,30 @@ public class Sistema {
     public static void verMeusCursosAluno(Aluno aluno) {
         System.out.println("\nMEUS CURSOS");
         ArrayList<Curso> cursosMatriculados = aluno.getCursosMatriculados();
-
         if (cursosMatriculados.isEmpty()) {
             System.out.println("Você não está matriculado em nenhum curso.");
-        } else {
+        } 
+        else {
             for (Curso curso : cursosMatriculados) {
-                System.out.println(curso.dadosCurso());
+                System.out.println("\n" + curso.dadosCurso());
             }
         }
     }
 
     public static void verMeusCursosProfessor(Professor professor) {
         System.out.println("\nMEUS CURSOS");
-        
         ArrayList<Curso> cursosDoProfessor = new ArrayList<>();
-    
         for (Curso curso : GerenciadorCursos.getListaCursos()) {
             if (curso.getNomeProfessor().equals(professor.getNome())) {
                 cursosDoProfessor.add(curso);
             }
-        }
-        
+        }  
         if (cursosDoProfessor.isEmpty()) {
             System.out.println("Você não está associado a nenhum curso.");
-        } else {
+        } 
+        else {
             for (Curso curso : cursosDoProfessor) {
-                System.out.println(curso.dadosCurso());
+                System.out.println("\n" + curso.dadosCurso());
             }
         }
     }

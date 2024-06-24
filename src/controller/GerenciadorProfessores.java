@@ -43,9 +43,9 @@ public class GerenciadorProfessores {
         }
     }
 
-    public static Professor buscarProfessor(String nome) {
+    public static Professor buscarProfessor(String dado) {
         for (Professor professor : listaProfessores) {
-            if (professor.getNome().equals(nome)) {
+            if (professor.getNome().equals(dado) || professor.getEmail().equals(dado)) {
                 return professor;
             }
         }
