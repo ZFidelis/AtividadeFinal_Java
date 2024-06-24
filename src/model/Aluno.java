@@ -9,7 +9,6 @@ import view.*;
 
 public class Aluno extends Usuario {
     private int matricula;
-    private List<Curso> cursosMatriculados;
 
     //#region Contructors
     public Aluno(String nome, String email, String senha, int matricula) {
