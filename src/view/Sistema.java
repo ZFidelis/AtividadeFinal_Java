@@ -10,7 +10,6 @@ import view.*;
 //#endregion
 public class Sistema {
     //#region unique execution
-
     public static void executar() {
         int op;
         do {
@@ -43,6 +42,10 @@ public class Sistema {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public static void logout() {
+        throw new Logout("Sistema Finalizado");
     }
     //#endregion
     //#region Menus
@@ -296,7 +299,6 @@ public class Sistema {
                 entrarEmCurso();
                 break;
             case 0:
-                finalizar();
                 break;
             default:
                 System.out.println("Opção inválida!");
@@ -312,7 +314,6 @@ public class Sistema {
                 verMeusCursosProfessor();
                 break;
             case 0:
-                finalizar();
                 break;
             default:
                 System.out.println("Opção inválida!");
@@ -530,7 +531,6 @@ public static void verificarTipoUsuario(String email) {
         }
 
         System.out.println("\nVerificação Concluída!");
-
     }
 
 
