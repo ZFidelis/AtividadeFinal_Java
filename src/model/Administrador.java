@@ -31,6 +31,19 @@ public class Administrador extends Usuario {
     public void removerCurso() {
 
     }
+    public void alterarNome(String novoNome) {
+        this.setNome(novoNome);
+    }
+
+   
+    public void alterarSenha(String novaSenha) {
+        this.setSenha(novaSenha);
+    }
+
+    
+    public void alterarRegistro(int novoRegistroAcesso) {
+        this.setNivelAcesso(novoRegistroAcesso);
+    }
     //#endregion
     //#region String Manipulation
     @Override
