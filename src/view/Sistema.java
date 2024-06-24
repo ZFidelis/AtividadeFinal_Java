@@ -12,10 +12,7 @@ public class Sistema {
     //#region unique execution
 
     public static void executar() {
-        inicializar();
-
         int op;
-
         do {
             menuPrincipal();
             op = Console.lerInt();
@@ -30,7 +27,7 @@ public class Sistema {
             GerenciadorCursos.carregarCursos();
             GerenciadorProfessores.carregarProfessores();
             System.out.println("\nDados carregados com sucesso!");
-            System.out.println("Programa Iniciado!\n\n");
+            System.out.println("Programa Iniciado!");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -161,7 +158,7 @@ public class Sistema {
     public static void signUp() {
         System.out.print("\nE-mail: ");
         String email = Console.lerString();
-        verificarIdentidade(email);
+        verificarIdentidadeSignUp(email);
         System.out.print("\nNome: ");
         String nome = Console.lerString();
         System.out.print("Senha: ");
@@ -276,7 +273,6 @@ public class Sistema {
     public static void direcionarOpcaoPrincipal(int op) {
         switch (op) {
             case 0:
-                finalizar();
                 break;
             case 1:
                 signIn();
@@ -487,11 +483,11 @@ public static void verificarTipoUsuario(String email) {
         System.out.println("Usuário não encontrado.");
     }
 
-    public static boolean verificarIdentidade(String email) {
+    public static void verificarIdentidade(String email) {
         int codigo = Console.gerarCodigoVerificacao();
         int codigoDigitado;
         int tentativas = 1;
-
+        // enviar código para o email digitado
         System.out.println("\nCódigo de Verificação foi enviado para seu email");
         System.out.println("Seu código: " + codigo);
         do {
@@ -500,20 +496,47 @@ public static void verificarTipoUsuario(String email) {
             if (codigoDigitado == codigo || tentativas > 2) {
                 break;
             }
-            tentativas += 1;
+            tentativas+=1;
             System.out.println("Código Inválido");
         } while (true);
-    
+        
         if (tentativas >= 3) {
             System.out.println("\nCódigo Inválido 3 vezes!");
             System.out.println("Conta bloqueada, por motivos de segurança enviar email para suporte@cursosUP.com.br");
             finalizar();
-            return false;
         }
-    
+
         System.out.println("\nVerificação Concluída!");
-    
+
         verificarTipoUsuario(email);
-        return true;
     }
+
+    public static void verificarIdentidadeSignUp(String email) {
+        int codigo = Console.gerarCodigoVerificacao();
+        int codigoDigitado;
+        int tentativas = 1;
+        // enviar código para o email digitado
+        System.out.println("\nCódigo de Verificação foi enviado para seu email");
+        System.out.println("Seu código: " + codigo);
+        do {
+            System.out.print("\n\nDigite o código recebido: ");
+            codigoDigitado = Console.lerInt();
+            if (codigoDigitado == codigo || tentativas > 2) {
+                break;
+            }
+            tentativas+=1;
+            System.out.println("Código Inválido");
+        } while (true);
+        
+        if (tentativas >= 3) {
+            System.out.println("\nCódigo Inválido 3 vezes!");
+            System.out.println("Conta bloqueada, por motivos de segurança enviar email para suporte@cursosUP.com.br");
+            finalizar();
+        }
+
+        System.out.println("\nVerificação Concluída!");
+
+    }
+
+
 }
