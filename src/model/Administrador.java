@@ -25,7 +25,7 @@ public class Administrador extends Usuario {
     //#endregion
     //#region Methods
     public void criarCurso() {
-        
+
         System.out.println("\nCRIAÇÃO DE NOVO CURSO");
 
    
@@ -53,6 +53,32 @@ public class Administrador extends Usuario {
     }
 
     public void removerCurso() {
+
+        
+
+        System.out.println("\nREMOÇÃO DE CURSO");
+
+        // Solicita o título do curso ao administrador para remover
+        System.out.print("Informe o título do curso que deseja remover: ");
+        String tituloCurso = Console.lerString();
+    
+        // Busca o curso na lista de cursos
+        Curso cursoRemover = null;
+        for (Curso curso : GerenciadorCursos.getListaCursos()) {
+            if (curso.getTitulo().equalsIgnoreCase(tituloCurso)) {
+                cursoRemover = curso;
+                break;
+            }
+        }
+    
+        if (cursoRemover != null) {
+            // Remove o curso utilizando o GerenciadorCursos
+            GerenciadorCursos.getListaCursos().remove(cursoRemover);
+            System.out.println("\nCurso removido com sucesso!");
+        } else {
+            System.out.println("\nCurso não encontrado. Verifique o título informado.");
+        }
+    }
 
     }
     public void alterarNome(String novoNome) {
