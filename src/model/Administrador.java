@@ -59,15 +59,19 @@ public class Administrador extends Usuario {
     
         Curso cursoRemover = null;
         for (Curso curso : GerenciadorCursos.getListaCursos()) {
+            
             if (curso.getTitulo().equalsIgnoreCase(tituloCurso)) {
                 cursoRemover = curso;
                 break;
             }
         }
+
         if (cursoRemover != null) {
             GerenciadorCursos.getListaCursos().remove(cursoRemover);
             System.out.println("\nCurso removido com sucesso!");
-        } else {
+        } 
+
+        else {
             System.out.println("\nCurso não encontrado. Verifique o título informado.");
         }
     }
