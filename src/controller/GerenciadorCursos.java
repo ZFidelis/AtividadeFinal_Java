@@ -51,6 +51,10 @@ public class GerenciadorCursos {
         return null;
     }
 
+    public static void excluirCurso(Curso curso) {
+        listaCursos.remove(curso);
+    }
+    
     public static ArrayList<Curso> getListaCursos() {
         return listaCursos;
     }
