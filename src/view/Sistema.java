@@ -287,10 +287,7 @@ public class Sistema {
                 break;
         }
     }
-    public static void direcionarMenuAluno() {
-        menuAluno();
-        int opcao = Console.lerInt();
-
+    public static void direcionarMenuAluno(int opcao) {
         switch (opcao) {
             case 1:
                 verMeusCursosAluno();
@@ -306,10 +303,7 @@ public class Sistema {
                 break;
         }
     }
-    public static void direcionarMenuProfessor() {
-        menuAluno();
-        int opcao = Console.lerInt();
-
+    public static void direcionarMenuProfessor(int opcao) {
         switch (opcao) {
             case 1:
                 CadastrarCurso();
@@ -325,10 +319,7 @@ public class Sistema {
                 break;
         }
     }
-    public static void direcionarMenuAdm() {
-        menuAluno();
-        int opcao = Console.lerInt();
-
+    public static void direcionarMenuAdm(int opcao) {
         switch (opcao) {
             case 1:
                 excluirCurso();
@@ -465,18 +456,22 @@ public static void verificarTipoUsuario(String email) {
     
         if (emailAluno) {
             menuAluno();
-            direcionarMenuAluno();
+            int opcao = Console.lerInt();
+            direcionarMenuAluno(opcao);
             return;
         }
     
         if (emailProfessor) {
             menuProfessor();
+            int opcao = Console.lerInt();
+            direcionarMenuProfessor(opcao);
             return;
         }
     
         if (emailAdm) {
             menuAdm();
-            direcionarMenuAdm();
+            int opcao = Console.lerInt();
+            direcionarMenuAdm(opcao);
             return;
         }
     
