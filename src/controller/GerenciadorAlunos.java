@@ -51,6 +51,15 @@ public class GerenciadorAlunos {
         return null;
     }
 
+    public static Aluno buscarAluno(int matricula) {
+        for (Aluno aluno : listaAlunos) {
+            if (aluno.getMatricula() == matricula) {
+                return aluno;
+            }
+        }
+        return null;
+    }
+
     public static void excluirAluno(Aluno aluno) {
         for (Aluno alunoT : listaAlunos) {
             if (alunoT.getNome().equals(aluno.getNome())) {
