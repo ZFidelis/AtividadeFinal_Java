@@ -340,6 +340,20 @@ public class Sistema {
         }
     }
 
+    public static void verMeusCursos(Aluno aluno) {
+        System.out.println("\nMEUS CURSOS");
+        ArrayList<Curso> cursosMatriculados = aluno.getCursosMatriculados();
+
+        if (cursosMatriculados.isEmpty()) {
+            System.out.println("Você não está matriculado em nenhum curso.");
+        } else {
+            for (Curso curso : cursosMatriculados) {
+                System.out.println(curso.dadosCurso());
+            }
+        }
+    }
+
+
     public static void verMeusCursos(Professor professor) {
         System.out.println("\nMEUS CURSOS");
         
