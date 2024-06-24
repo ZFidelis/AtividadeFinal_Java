@@ -71,5 +71,10 @@ public class GerenciadorAlunos {
     public static ArrayList<Aluno> getListaAlunos() {
         return listaAlunos;
     }
+
+    
+    public static ArrayList<Aluno> getAlunos() {
+        return listaAlunos;
+    }
     //#endregion
 }
