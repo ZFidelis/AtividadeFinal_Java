@@ -60,8 +60,8 @@ public class Administrador extends Usuario {
         this.setSenha(novaSenha);
     }
     
-    public void alterarRegistro(int novoRegistroAcesso) {
-        this.setNivelAcesso(novoRegistroAcesso);
+    public void alterarNivelAcesso(int novoNivelAcesso) {
+        this.setNivelAcesso(novoNivelAcesso);
     }
     //#endregion
     //#region String Manipulation
