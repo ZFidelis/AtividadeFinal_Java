@@ -482,7 +482,6 @@ public static void verMeusCursos(Aluno aluno) {
         int codigo = Console.gerarCodigoVerificacao();
         int codigoDigitado;
         int tentativas = 1;
-        // enviar código para o email digitado
         System.out.println("\nCódigo de Verificação foi enviado para seu email");
         System.out.println("Seu código: " + codigo);
         do {
