@@ -43,13 +43,21 @@ public class GerenciadorProfessores {
         }
     }
 
-    public static Professor buscarProfessor(int registro ) {
+    public static Professor buscarProfessor(String nome) {
         for (Professor professor : listaProfessores) {
-            if (professor.getRegistro() == registro) {
+            if (professor.getNome().equals(nome)) {
                 return professor;
             }
         }
         return null;
+    }
+
+    public static void excluirProfessor(Professor professor) {
+        for (Professor professorT : listaProfessores) {
+            if (professorT.getNome().equals(professor.getNome())) {
+               listaProfessores.remove(professor); 
+            }
+        }
     }
 
     public static ArrayList<Professor> getListaProfessores() {

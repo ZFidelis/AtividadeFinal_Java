@@ -1,2 +1,0 @@
-Aulas Java, Aulas sobre backend intermedi�rio utilizando Java como linguagem de programa��o, 220, Jason Sobreiro, Alunos Matriculados, 123; 1234; 
-Design Software, Aula sobre design de software, 230, O Melhor, Alunos Matriculados, 1234; 

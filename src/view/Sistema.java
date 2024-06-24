@@ -187,7 +187,7 @@ public class Sistema {
         String cursoNome = Console.lerString();
         Curso curso = GerenciadorCursos.buscarCursos(cursoNome);
 
-        GenciadorCursos.excluirCurso(curso);
+        GerenciadorCursos.excluirCurso(curso);
     }
 
     public static void excluirAluno() {

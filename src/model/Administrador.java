@@ -28,6 +28,10 @@ public class Administrador extends Usuario {
     }
     //#endregion
     //#region Methods
+    public String dadosAdministrador() {
+        return super.dadosUsuario() + "\nNível de Acesso: " + nivelAcesso;
+    }
+
     public void criarCurso() {
         System.out.println("\nCRIAÇÃO DE NOVO CURSO");
         System.out.print("Informe o título do curso: ");

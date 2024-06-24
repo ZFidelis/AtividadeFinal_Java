@@ -6,7 +6,7 @@ import view.*;
 import java.io.*;
 import java.util.ArrayList;
 //#endregion
-public class GerenciadorAdminstradores {
+public class GerenciadorAdministradores {
     private static final File ADMINISTRADORES_REGISTRADOS = new File("src/database/administradores.txt");
     
     private static ArrayList<Administrador> listaAdministradores = new ArrayList<>();

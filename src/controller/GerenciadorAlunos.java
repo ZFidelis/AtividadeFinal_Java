@@ -42,13 +42,21 @@ public class GerenciadorAlunos {
         }
     }
 
-    public static Aluno buscarAluno(int matricula ) {
+    public static Aluno buscarAluno(String nome) {
         for (Aluno aluno : listaAlunos) {
-            if (aluno.getMatricula() == matricula) {
+            if (aluno.getNome().equals(nome)) {
                 return aluno;
             }
         }
         return null;
+    }
+
+    public static void excluirAluno(Aluno aluno) {
+        for (Aluno alunoT : listaAlunos) {
+            if (alunoT.getNome().equals(aluno.getNome())) {
+               listaAlunos.remove(aluno); 
+            }
+        }
     }
 
     public static ArrayList<Aluno> getListaAlunos() {
