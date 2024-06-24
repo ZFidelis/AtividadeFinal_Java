@@ -72,6 +72,14 @@ public class Curso {
     public void setProfessor(String professor) {
         this.nomeProfessor = professor;
     }
+    
+    public ArrayList<Aluno> getAlunosInscritos() {
+        return alunosInscritos;
+    }
+
+    public void setAlunosInscritos(ArrayList<Aluno> alunosInscritos) {
+        this.alunosInscritos = alunosInscritos;
+    }
     //#endregion
     //#region Methods
     public String dadosCurso() {

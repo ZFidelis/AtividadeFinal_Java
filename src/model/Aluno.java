@@ -1,4 +1,6 @@
 package model;
+import java.util.ArrayList;
+
 //#region Import
 import controller.*;
 import model.*;
@@ -33,7 +35,26 @@ public class Aluno extends Usuario {
         Aluno esteAluno = new Aluno(this.nome, this.email, this.senha, this.matricula);
 
         cursoEntrar.adicionarAluno(esteAluno);
-    }   
+    }
+    
+    public ArrayList<Curso> getCursosMatriculados() {
+        ArrayList<Curso> cursosExistentes = new ArrayList<>();
+        ArrayList<Curso> cursosMatriculados = new ArrayList<>();
+
+        Aluno esteAluno = new Aluno(this.nome, this.email, this.senha, this.matricula);
+        cursosExistentes = GerenciadorCursos.getListaCursos();
+
+        for (Curso curso : cursosExistentes) {
+            for (Aluno aluno : curso.getAlunosInscritos()) {
+                if (aluno.getMatricula() == esteAluno.getMatricula()) {
+                    cursosMatriculados.add(curso);
+                    break;
+                }
+            }
+        }
+
+        return cursosMatriculados;
+    }
     //#endregion
     //#region String Manipulation
     @Override
