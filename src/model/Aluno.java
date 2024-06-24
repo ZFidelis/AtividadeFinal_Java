@@ -53,7 +53,7 @@ public class Aluno extends Usuario {
                 }
             }
         }
-
+        
         return cursosMatriculados;
     }
     //#endregion

@@ -43,14 +43,9 @@ public class Sistema {
             System.out.println(e.getMessage());
         }
     }
-
-    public static void logout() {
-        throw new Logout("Sistema Finalizado");
-    }
     //#endregion
     //#region Menus
     public static void menuPrincipal() {
-
         System.out.println("\nPLATAFORMA DE CURSOS ONLINE");
         System.out.println("1) Entrar");
         System.out.println("2) Criar Conta");
@@ -60,7 +55,7 @@ public class Sistema {
     }
 
     public static void menuTiposCadastro() {
-
+        System.out.println("\nSELECIONE O TIPO DE USUÁRIO");
         System.out.println("1) Aluno");
         System.out.println("2) Professor");
         System.out.println("3) Administrador");
@@ -130,6 +125,7 @@ public class Sistema {
         System.out.println("0) Sair");
         System.out.print("Sua opção: ");
     }
+    
     public static void menuAlterarDadosProfessor(){
         
         System.out.println("\nALTERAR DADOS DO PROFESSOR");
@@ -237,7 +233,6 @@ public class Sistema {
         }
     }
     //#endregion
-   
     public static void cadastrarUsuario(int op, String nome, String email, String senha) {
         switch (op) {
             case 0:
@@ -290,13 +285,30 @@ public class Sistema {
                 break;
         }
     }
-    public static void direcionarMenuAluno(int opcao) {
+    
+    public static void direcionarMenuAluno(int opcao, String email) {
+        Aluno usuario = GerenciadorAlunos.buscarAluno(email);
+        ArrayList<Curso> cursosMatriculados = new ArrayList<>();
+        
         switch (opcao) {
             case 1:
-                verMeusCursosAluno();
+                cursosMatriculados = usuario.getCursosMatriculados();
+                if (cursosMatriculados.isEmpty()) {
+                    System.out.println("\nVocê não entrou em nenhum curso!"); // tentar voltar para o menuAluno()
+                }
+                for (Curso curso : cursosMatriculados) {
+                    System.out.println(curso.dadosCurso()); // tentar voltar para o menuAluno()
+                }
                 break;
             case 2:
-                entrarEmCurso();
+                GerenciadorCursos.listarCursos();
+                try{
+                    System.out.print("\nNome do Curso à ingressar: ");
+                    String cursoEntrar = Console.lerString();
+                    usuario.entrarCurso(cursoEntrar); // tentar voltar para o menuAluno()
+                } catch (Exception e) {
+                    System.out.println("Problema ao entrar no Curso\n");
+                }
                 break;
             case 0:
                 break;
@@ -305,7 +317,8 @@ public class Sistema {
                 break;
         }
     }
-    public static void direcionarMenuProfessor(int opcao) {
+    
+    public static void direcionarMenuProfessor(int opcao, String email) {
         switch (opcao) {
             case 1:
                 CadastrarCurso();
@@ -320,7 +333,8 @@ public class Sistema {
                 break;
         }
     }
-    public static void direcionarMenuAdm(int opcao) {
+    
+    public static void direcionarMenuAdm(int opcao, String email) {
         switch (opcao) {
             case 1:
                 excluirCurso();
@@ -445,7 +459,7 @@ public class Sistema {
         }
     }
   
-public static void verificarTipoUsuario(String email) {
+    public static void verificarTipoUsuario(String email) {
         boolean emailAluno = GerenciadorAlunos.getAlunos().stream()
             .anyMatch(aluno -> aluno.getEmail().equalsIgnoreCase(email));
     
@@ -458,28 +472,28 @@ public static void verificarTipoUsuario(String email) {
         if (emailAluno) {
             menuAluno();
             int opcao = Console.lerInt();
-            direcionarMenuAluno(opcao);
+            direcionarMenuAluno(opcao, email);
             return;
         }
     
         if (emailProfessor) {
             menuProfessor();
             int opcao = Console.lerInt();
-            direcionarMenuProfessor(opcao);
+            direcionarMenuProfessor(opcao, email);
             return;
         }
     
         if (emailAdm) {
             menuAdm();
             int opcao = Console.lerInt();
-            direcionarMenuAdm(opcao);
+            direcionarMenuAdm(opcao, email);
             return;
         }
     
         System.out.println("Usuário não encontrado.");
     }
 
-    public static void verificarIdentidade(String email) {
+    public static boolean verificarIdentidade(String email) {
         int codigo = Console.gerarCodigoVerificacao();
         int codigoDigitado;
         int tentativas = 1;
@@ -500,11 +514,13 @@ public static void verificarTipoUsuario(String email) {
             System.out.println("\nCódigo Inválido 3 vezes!");
             System.out.println("Conta bloqueada, por motivos de segurança enviar email para suporte@cursosUP.com.br");
             finalizar();
+            return false;
         }
-
+    
         System.out.println("\nVerificação Concluída!");
-
+    
         verificarTipoUsuario(email);
+        return true;
     }
 
     public static void verificarIdentidadeSignUp(String email) {
@@ -532,6 +548,4 @@ public static void verificarTipoUsuario(String email) {
 
         System.out.println("\nVerificação Concluída!");
     }
-
-
 }

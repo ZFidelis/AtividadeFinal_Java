@@ -42,15 +42,15 @@ public class GerenciadorAlunos {
         }
     }
 
-    public static Aluno buscarAluno(String nome) {
+    public static Aluno buscarAluno(String dado) {
         for (Aluno aluno : listaAlunos) {
-            if (aluno.getNome().equals(nome)) {
+            if (aluno.getNome().equals(dado) || aluno.getEmail().equals(dado)) {
                 return aluno;
             }
         }
         return null;
     }
-
+    
     public static Aluno buscarAluno(int matricula) {
         for (Aluno aluno : listaAlunos) {
             if (aluno.getMatricula() == matricula) {
