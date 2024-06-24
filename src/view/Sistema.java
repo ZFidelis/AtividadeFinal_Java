@@ -360,7 +360,31 @@ public class Sistema {
         }
     }
   
+    public static void verificarTipoUsuario(){
+        boolean emailAluno = GerenciadorAlunos.getAlunos().stream()
+        .anyMatch(aluno -> aluno.getEmail().equalsIgnoreCase(email));
 
+        boolean emailProfessor = GerenciadorProfessores.getProfessores().stream()
+        .anyMatch(professor -> professor.getEmail().equalsIgnoreCase(email));
+
+        boolean emailAdm = GerenciadorAdministradores.getAdministradores().stream()
+        .anyMatch(administrador -> administrador.getEmail().equalsIgnoreCase(email));
+
+        if (!emailAluno) {
+            menuAluno();
+            return;
+        }
+
+        if (!emailProfessor) {
+            menuProfessor();
+            return;
+        }
+
+        if (!emailAdm) {
+            menuAdm();
+            return;
+        }
+    }
 
     public static void verificarIdentidade(String email) {
         int codigo = Console.gerarCodigoVerificacao();
@@ -387,5 +411,7 @@ public class Sistema {
         }
 
         System.out.println("\nVerificação Concluída!");
+
+        verificarTipoUsuario(email);
     }
 }
