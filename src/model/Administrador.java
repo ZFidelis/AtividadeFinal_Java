@@ -32,20 +32,6 @@ public class Administrador extends Usuario {
         return super.dadosUsuario() + "\nNível de Acesso: " + nivelAcesso;
     }
 
-    public void criarCurso() {
-        System.out.println("\nCRIAÇÃO DE NOVO CURSO");
-        System.out.print("Informe o título do curso: ");
-        String titulo = Console.lerString();
-        System.out.print("Informe a descrição do curso: ");
-        String descricao = Console.lerString();
-        System.out.print("Informe a duração do curso (em horas): ");
-        int duracao = Console.lerInt();
-        String nomeProfessor = this.getNome(); 
-        Curso curso = new Curso(titulo, descricao, duracao, nomeProfessor);
-        GerenciadorCursos.adicionarCurso(curso);
-        System.out.println("\nCurso criado com sucesso!");
-    }
-
     public void removerCurso() {
         System.out.println("\nREMOÇÃO DE CURSO");
         System.out.print("Informe o título do curso que deseja remover: ");
