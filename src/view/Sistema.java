@@ -1,5 +1,6 @@
 package view;
 import java.io.IOException;
+import java.util.ArrayList;
 
 //#region Import
 import controller.*;
@@ -309,6 +310,89 @@ public class Sistema {
                 break;
         }
     }
+    public static void direcionarMenuProfessor() {
+        menuAluno();
+        int opcao = Console.lerInt();
+
+        switch (opcao) {
+            case 1:
+                listarCursos();
+                break;
+            case 2:
+                entrarEmCurso();
+                break;
+            case 0:
+                finalizar();
+                break;
+            default:
+                System.out.println("Opção inválida!");
+                break;
+        }
+    }
+    public static void direcionarMenuAdm() {
+        menuAluno();
+        int opcao = Console.lerInt();
+
+        switch (opcao) {
+            case 1:
+                excluirCurso();
+                break;
+            case 2:
+                excluirAluno();;
+                break;
+            case 3:
+                excluirProfessor();
+                break;
+            case 4:
+                menuProfessor();
+                break;
+            case 5:
+                menuAluno();
+                break;
+            case 6:
+                AlterarDadosAdm();
+                break;
+            case 7:
+                AlterarDadosAluno();
+                break;
+            case 0:
+                finalizar();
+                break;
+            default:
+                System.out.println("Opção inválida!");
+                break;
+        }
+    }
+
+    public static void AlterarDadosAdm(Administrador administrador){
+       
+        int opcao = Console.lerInt();
+        switch (opcao) {
+            case 1:
+                System.out.print("Novo nome: ");
+                String novoNome = Console.lerString();
+                administrador.alterarNome(novoNome);
+                System.out.println("Nome alterado com sucesso!");
+                break;
+            case 2:
+                System.out.print("Novo registro: ");
+                int novoRegistroAcesso = Console.lerInt();
+                administrador.alterarRegistro(novoRegistroAcesso);
+                System.out.println("Nivel de Acesso alterado com sucesso!");
+                break;
+            case 3:
+                System.out.print("Nova senha: ");
+                String novaSenha = Console.lerString();
+                administrador.alterarSenha(novaSenha);
+                System.out.println("Senha alterada com sucesso!");
+                break;
+            case 0:
+                break;
+            default:
+                System.out.println("Opção inválida!");
+                break;
+        }
+    }
 
     public static void alterarDadosProfessor(Professor professor){
        
@@ -340,7 +424,7 @@ public class Sistema {
         }
     }
 
-    public static void verMeusCursos(Aluno aluno) {
+public static void verMeusCursos(Aluno aluno) {
         System.out.println("\nMEUS CURSOS");
         ArrayList<Curso> cursosMatriculados = aluno.getCursosMatriculados();
 
@@ -352,7 +436,6 @@ public class Sistema {
             }
         }
     }
-
 
     public static void verMeusCursos(Professor professor) {
         System.out.println("\nMEUS CURSOS");
@@ -386,6 +469,7 @@ public class Sistema {
 
         if (!emailAluno) {
             menuAluno();
+            direcionarMenuAluno();
             return;
         }
 
