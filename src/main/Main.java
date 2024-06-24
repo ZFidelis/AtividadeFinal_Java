@@ -8,6 +8,12 @@ import view.*;
 public class Main {
     public static void main(String[] args) {
         Sistema.inicializar();
+        Sistema.executar();
+        Sistema.finalizar();
+    }
+    
+    public static void manter() {
+        Sistema.inicializar();
         
         // Aluno a = new Aluno("Isaac", "isaac@h", "icaas", 123);
         // Aluno b = new Aluno("Isaac", "isaac@h", "icaas", 1234);
@@ -28,5 +34,6 @@ public class Main {
         c.mostrarAlunos();
         c1.mostrarAlunos();
         Sistema.finalizar();
+
     }
 }
