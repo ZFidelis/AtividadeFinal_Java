@@ -49,6 +49,7 @@ public class GerenciadorAlunos {
                 return aluno;
             }
         }
+        return null;
     }
 
     public static ArrayList<Aluno> getListaAlunos() {

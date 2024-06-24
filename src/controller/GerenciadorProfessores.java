@@ -49,6 +49,7 @@ public class GerenciadorProfessores {
                 return professor;
             }
         }
+        return null;
     }
 
     public static ArrayList<Professor> getListaProfessores() {

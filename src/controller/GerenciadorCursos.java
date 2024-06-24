@@ -49,6 +49,7 @@ public class GerenciadorCursos {
                 return curso;
             }
         }
+        return null;
     }
 
     public static ArrayList<Curso> getListaCursos() {
