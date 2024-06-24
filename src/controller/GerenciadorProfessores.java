@@ -55,5 +55,9 @@ public class GerenciadorProfessores {
     public static ArrayList<Professor> getListaProfessores() {
         return listaProfessores;
     }
+
+    public static ArrayList<Professor> getProfessores() {
+        return listaProfessores;
+    }
     //#endregion
 }
