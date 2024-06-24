@@ -229,7 +229,7 @@ public class Sistema {
             System.out.println("\nNão foi possível verificar sua identidade. Tente novamente mais tarde.");
         }
     }
-    public class ConfiguracaoSenha {
+    public static class ConfiguracaoSenha {
         private static String senhaAdministrador = "adm123";
     
         public static String getSenhaAdministrador() {
