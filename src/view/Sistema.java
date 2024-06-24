@@ -98,12 +98,6 @@ public class Sistema {
         System.out.print("Sua opção: ");
     }
 
-    public static void menuCursoProfessor() {
-        System.out.println("\nMENU DE CURSOS DO PROFESSOR");
-        System.out.println("1) Selecionar Curso");
-        System.out.println("0) Sair");
-        System.out.print("Sua opção: ");
-    }
 
     public static void menuEditarCurso() {
         System.out.println("\nEDITAR CURSO");
