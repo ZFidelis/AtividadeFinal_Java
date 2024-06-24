@@ -30,6 +30,20 @@ public class Professor extends Usuario {
     public String dadosProfessor() {
         return super.dadosUsuario() + "\nMatricula: " + registro;
     }
+
+    public void alterarNome(String novoNome) {
+        this.setNome(novoNome);
+    }
+
+   
+    public void alterarSenha(String novaSenha) {
+        this.setSenha(novaSenha);
+    }
+
+    
+    public void alterarRegistro(int novoRegistro) {
+        this.setRegistro(novoRegistro);
+    }
     //#endregion
     //#region String Manipulation
     @Override
