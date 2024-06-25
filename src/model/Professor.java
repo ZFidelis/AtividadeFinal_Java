@@ -26,13 +26,26 @@ public class Professor extends Usuario {
     }
     //#endregion
     //#region Methods
-    
 
     //Metodo alterar dados Professor
     public String dadosProfessor() {
         return super.dadosUsuario() + "\nMatricula: " + registro;
     }
 
+    public void criarCurso() {
+        System.out.println("\nCRIAÇÃO DE NOVO CURSO");
+        System.out.print("Informe o título do curso: ");
+        String titulo = Console.lerString();
+        System.out.print("Informe a descrição do curso: ");
+        String descricao = Console.lerString();
+        System.out.print("Informe a duração do curso (em horas): ");
+        int duracao = Console.lerInt();
+        String nomeProfessor = this.getNome(); 
+        Curso curso = new Curso(titulo, descricao, duracao, nomeProfessor);
+        GerenciadorCursos.adicionarCurso(curso);
+        System.out.println("\nCurso criado com sucesso!");
+    }
+    
     public void alterarNome(String novoNome) {
         this.setNome(novoNome);
     }
@@ -42,7 +55,6 @@ public class Professor extends Usuario {
         this.setSenha(novaSenha);
     }
 
-    
     public void alterarRegistro(int novoRegistro) {
         this.setRegistro(novoRegistro);
     }
