@@ -70,11 +70,9 @@ public class Sistema {
         System.out.println("1) Excluir Curso");
         System.out.println("2) Excluir Aluno");
         System.out.println("3) Excluir Professor");
-        System.out.println("4) Menu Professor");
-        System.out.println("5) Menu Aluno");
-        System.out.println("6) Alterar meus Dados");
-        System.out.println("7) Alterar Dados de Aluno");
-        System.out.println("8) Alterar Dados de Professor");
+        System.out.println("4) Alterar meus Dados");
+        System.out.println("5) Alterar Dados de Aluno");
+        System.out.println("6) Alterar Dados de Professor");
         System.out.println("0) Sair");
         System.out.print("Sua opção: ");
     }
@@ -347,21 +345,15 @@ public class Sistema {
                 excluirProfessor();
                 break;
             case 4:
-                menuProfessor();
-                break;
-            case 5:
-                menuAluno();
-                break;
-            case 6:
                 alterarDadosAdm(usuario);
                 break;
-            case 7:
+            case 5:
                 System.out.print("Digite a matricula do aluno: ");
                 int matricula = Console.lerInt();
                 Aluno aluno = GerenciadorAlunos.buscarAluno(matricula);
                 alterarDadosAluno(aluno);
                 break;
-            case 8:
+            case 6:
                 System.out.print("Digite o Registro do professor: ");
                 int registro = Console.lerInt();
                 Professor professor = GerenciadorProfessores.buscarProfessor(registro);
