@@ -23,9 +23,9 @@ public class Sistema {
     public static void inicializar() {
         try {
             GerenciadorAlunos.carregarAlunos();
-            GerenciadorCursos.carregarCursos();
             GerenciadorProfessores.carregarProfessores();
             GerenciadorAdministradores.carregarAdministradores();
+            GerenciadorCursos.carregarCursos();
             System.out.println("\nDados carregados com sucesso!");
             System.out.println("Programa Iniciado!");
         } catch (Exception e) {

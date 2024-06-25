@@ -11,7 +11,7 @@ public class GerenciadorAlunos {
     private static ArrayList<Aluno> listaAlunos = new ArrayList<>();
 
     //#region File Manipulation
-    public static ArrayList<Aluno> carregarAlunos() throws IOException {
+    public static void carregarAlunos() throws IOException {
         try (FileReader fr = new FileReader(ALUNOS_REGISTRADOS);BufferedReader br = new BufferedReader(fr)) {
                 String linha;
                 while ((linha = br.readLine()) != null) {
@@ -20,7 +20,7 @@ public class GerenciadorAlunos {
                 }
         } 
         System.out.println("Os Alunos foram Carregados!");
-        return listaAlunos;
+        //return listaAlunos;
     }
 
     public static void manterAlunos() throws IOException {      
@@ -63,7 +63,7 @@ public class GerenciadorAlunos {
     public static void excluirAluno(Aluno aluno) {
         for (Aluno alunoT : listaAlunos) {
             if (alunoT.getNome().equals(aluno.getNome())) {
-               listaAlunos.remove(aluno); 
+               listaAlunos.remove(alunoT); 
             }
         }
     }

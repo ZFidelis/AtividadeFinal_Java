@@ -119,8 +119,8 @@ public class Curso {
         ArrayList<Aluno> listaAlunos = new ArrayList<>();
         if (dadosCurso.length > 4) {
             String[] alunosRegistrados = dadosCurso[4].split("; ");
-            for (String alunoId : alunosRegistrados) {
-                Aluno tempAluno = GerenciadorAlunos.buscarAluno(Integer.parseInt(alunoId));
+            for (int i = 1; i < alunosRegistrados.length; i++) {
+                Aluno tempAluno = GerenciadorAlunos.buscarAluno(Integer.parseInt(alunosRegistrados[i]));
                 listaAlunos.add(tempAluno);
             }
         }
