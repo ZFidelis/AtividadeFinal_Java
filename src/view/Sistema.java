@@ -184,6 +184,7 @@ public class Sistema {
         Curso curso = GerenciadorCursos.buscarCursos(cursoNome);
 
         GerenciadorCursos.excluirCurso(curso);
+        System.out.println("Curso excluído com sucesso!");
     }
 
     public static void excluirAluno() {
@@ -192,6 +193,7 @@ public class Sistema {
         Aluno aluno = GerenciadorAlunos.buscarAluno(alunoNome);
 
         GerenciadorAlunos.excluirAluno(aluno);
+        System.out.println("Aluno excluído com sucesso!");
     }
 
     public static void excluirProfessor() {
@@ -200,6 +202,7 @@ public class Sistema {
         Professor professor = GerenciadorProfessores.buscarProfessor(professorNome);
 
         GerenciadorProfessores.excluirProfessor(professor);
+        System.out.println("Professor excluído com sucesso!");
     }
 
     public static void passChange() {

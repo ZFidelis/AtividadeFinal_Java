@@ -52,10 +52,14 @@ public class GerenciadorCursos {
     }
 
     public static void excluirCurso(Curso curso) {
+        boolean existe = false;
         for (Curso cursoT : listaCursos) {
             if (cursoT.getTitulo().equals(curso.getTitulo())) {
-               listaCursos.remove(curso); 
+               existe = true;
             }
+        }
+        if (existe) {
+            listaCursos.remove(curso); 
         }
     }
 

@@ -61,10 +61,14 @@ public class GerenciadorProfessores {
     }
 
     public static void excluirProfessor(Professor professor) {
+        boolean existe = false;
         for (Professor professorT : listaProfessores) {
             if (professorT.getNome().equals(professor.getNome())) {
-               listaProfessores.remove(professor); 
+               existe = true;
             }
+        }
+        if (existe) {
+            listaProfessores.remove(professor); 
         }
     }
 
