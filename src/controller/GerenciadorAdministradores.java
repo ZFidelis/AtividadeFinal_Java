@@ -12,7 +12,7 @@ public class GerenciadorAdministradores {
     private static ArrayList<Administrador> listaAdministradores = new ArrayList<>();
 
     //#region File Manipulation
-    public static ArrayList<Administrador> carregarAlunos() throws IOException {
+    public static ArrayList<Administrador> carregarAdministradores() throws IOException {
         try (FileReader fr = new FileReader(ADMINISTRADORES_REGISTRADOS);BufferedReader br = new BufferedReader(fr)) {
                 String linha;
                 while ((linha = br.readLine()) != null) {
@@ -43,9 +43,9 @@ public class GerenciadorAdministradores {
         }
     }
 
-    public static Administrador buscarAdministrador(String nome) {
+    public static Administrador buscarAdministrador(String dado) {
         for (Administrador administrador : listaAdministradores) {
-            if (administrador.getNome().equals(nome)) {
+            if (administrador.getNome().equals(dado) || administrador.getEmail().equals(dado)) {
                 return administrador;
             }
         }

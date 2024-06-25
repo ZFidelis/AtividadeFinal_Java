@@ -13,23 +13,16 @@ public class Administrador extends Usuario {
 
     }
     
-    public Administrador(String nome, String email, String senha, int nivelAcesso) {
+    public Administrador(String nome, String email, String senha) {
         super(nome, email, senha);
-        this.nivelAcesso = nivelAcesso;
     }
     //#endregion
     //#region Getters & Setters
-    public int getNivelAcesso() {
-        return nivelAcesso;
-    }
 
-    public void setNivelAcesso(int nivelAcesso) {
-        this.nivelAcesso = nivelAcesso;
-    }
     //#endregion
     //#region Methods
     public String dadosAdministrador() {
-        return super.dadosUsuario() + "\nNível de Acesso: " + nivelAcesso;
+        return super.dadosUsuario();
     }
 
     public void removerCurso() {
@@ -59,21 +52,17 @@ public class Administrador extends Usuario {
     public void alterarSenha(String novaSenha) {
         this.setSenha(novaSenha);
     }
-    
-    public void alterarNivelAcesso(int novoNivelAcesso) {
-        this.setNivelAcesso(novoNivelAcesso);
-    }
     //#endregion
     //#region String Manipulation
     @Override
     public String toString() {
-        return super.toString() + ", " + nivelAcesso;
+        return super.toString();
     }
 
     public static Administrador fromString(String linha) {
         String[] dadosAdministrador = linha.split(", ");
 
-        return new Administrador(dadosAdministrador[0], dadosAdministrador[1], dadosAdministrador[2], Integer.parseInt(dadosAdministrador[3]));
+        return new Administrador(dadosAdministrador[0], dadosAdministrador[1], dadosAdministrador[2]);
     }
     //#endregion
 }

@@ -52,6 +52,15 @@ public class GerenciadorProfessores {
         return null;
     }
 
+    public static Professor buscarProfessor(int registro) {
+        for (Professor professor : listaProfessores) {
+            if (professor.getRegistro() == (registro)) {
+                return professor;
+            }
+        }
+        return null;
+    }
+
     public static void excluirProfessor(Professor professor) {
         for (Professor professorT : listaProfessores) {
             if (professorT.getNome().equals(professor.getNome())) {

@@ -1,2 +1,1 @@
-jason, Jason Sobreiro, senhaSecreta, 890
 evandro, Evandro Zatti, senhaMuitoSecreta, 67

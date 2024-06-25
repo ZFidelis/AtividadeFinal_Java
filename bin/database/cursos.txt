@@ -1,2 +1,1 @@
-Desenvolvimento de Software, Aulas com foco em desenvolver softwares usando Java como linguagem principal, 220, jason, Alunos Matriculados, 123
-Design de Software, Aulas com foco em documentação de software, 220, evandro, Alunos Matriculados, 132;
+Desenvolvimento de Software, Aulas com foco em desenvolver softwares usando Java como linguagem principal, 220, jason, Alunos Matriculados, 123; 

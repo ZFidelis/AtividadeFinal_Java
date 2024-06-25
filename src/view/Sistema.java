@@ -25,6 +25,7 @@ public class Sistema {
             GerenciadorAlunos.carregarAlunos();
             GerenciadorCursos.carregarCursos();
             GerenciadorProfessores.carregarProfessores();
+            GerenciadorAdministradores.carregarAdministradores();
             System.out.println("\nDados carregados com sucesso!");
             System.out.println("Programa Iniciado!");
         } catch (Exception e) {
@@ -37,6 +38,7 @@ public class Sistema {
             GerenciadorAlunos.manterAlunos();
             GerenciadorCursos.manterCursos();
             GerenciadorProfessores.manterProfessores();
+            GerenciadorAdministradores.manterAdministradores();
             System.out.println("\nDados salvos com sucesso!");
             System.out.println("Sistema Finalizado");
         } catch (Exception e) {
@@ -72,6 +74,7 @@ public class Sistema {
         System.out.println("5) Menu Aluno");
         System.out.println("6) Alterar meus Dados");
         System.out.println("7) Alterar Dados de Aluno");
+        System.out.println("8) Alterar Dados de Professor");
         System.out.println("0) Sair");
         System.out.print("Sua opção: ");
     }
@@ -253,14 +256,16 @@ public class Sistema {
             case 3:
                 System.out.print("\nDigite a senha de administração: ");
                 String senhaDigitada = Console.lerString();
-        
                 String senhaAdminStr = String.valueOf(ConfiguracaoSenha.getSenhaAdministrador());
         
                 if (senhaDigitada.equals(senhaAdminStr)) {
                     System.out.println("Senha correta. Operações administrativas podem ser realizadas.");
-                } else {
+                } 
+                else {
                     System.out.println("Senha de administração incorreta. Ação cancelada.");
                 }
+                Administrador administrador = new Administrador(nome, email, senha);
+                GerenciadorAdministradores.adicionarAdministrador(administrador);
                 break;
             default:
                 System.out.println("Opção inválida. Tente novamente.");
@@ -330,6 +335,7 @@ public class Sistema {
     }
     
     public static void direcionarMenuAdm(int opcao, String email) {
+        Administrador usuario = GerenciadorAdministradores.buscarAdministrador(email);
         switch (opcao) {
             case 1:
                 excluirCurso();
@@ -347,10 +353,19 @@ public class Sistema {
                 menuAluno();
                 break;
             case 6:
-                AlterarDadosAdm();
+                alterarDadosAdm(usuario);
                 break;
             case 7:
-                AlterarDadosAluno();
+                System.out.print("Digite a matricula do aluno: ");
+                int matricula = Console.lerInt();
+                Aluno aluno = GerenciadorAlunos.buscarAluno(matricula);
+                alterarDadosAluno(aluno);
+                break;
+            case 8:
+                System.out.print("Digite o Registro do professor: ");
+                int registro = Console.lerInt();
+                Professor professor = GerenciadorProfessores.buscarProfessor(registro);
+                alterarDadosProfessor(professor);
                 break;
             case 0:
                 finalizar();
@@ -361,27 +376,57 @@ public class Sistema {
         }
     }
 
-    public static void AlterarDadosAdm(Administrador administrador){
+    public static void alterarDadosAdm(Administrador administrador){
        
         int opcao = Console.lerInt();
         switch (opcao) {
             case 1:
                 System.out.print("Novo nome: ");
                 String novoNome = Console.lerString();
-                administrador.alterarNome(novoNome);
+                administrador.setNome(novoNome);
                 System.out.println("Nome alterado com sucesso!");
                 break;
             case 2:
-                System.out.print("Novo registro: ");
-                int novoRegistroAcesso = Console.lerInt();
-                administrador.alterarRegistro(novoRegistroAcesso);
-                System.out.println("Nivel de Acesso alterado com sucesso!");
+                System.out.print("Novo email: ");
+                String novoEmail = Console.lerString();
+                administrador.setEmail(novoEmail);
+                System.out.println("Email alterado com Sucesso!");
                 break;
             case 3:
                 System.out.print("Nova senha: ");
                 String novaSenha = Console.lerString();
                 administrador.alterarSenha(novaSenha);
                 System.out.println("Senha alterada com sucesso!");
+                break;
+            case 0:
+                break;
+            default:
+                System.out.println("Opção inválida!");
+                break;
+        }
+    }
+
+    public static void alterarDadosAluno(Aluno aluno){
+       
+        int opcao = Console.lerInt();
+        switch (opcao) {
+            case 1:
+                System.out.print("Novo nome: ");
+                String novoNome = Console.lerString();
+                aluno.setNome(novoNome);
+                System.out.println("Nome alterado com Sucesso!");
+                break;
+            case 2:
+                System.out.print("Novo email: ");
+                String novoEmail = Console.lerString();
+                aluno.setEmail(novoEmail);;
+                System.out.println("Email alterado com Sucesso!");
+                break;
+            case 3:
+                System.out.print("Nova senha: ");
+                String novaSenha = Console.lerString();
+                aluno.setSenha(novaSenha);
+                System.out.println("Senha alterada com Sucesso!");
                 break;
             case 0:
                 break;
@@ -398,20 +443,20 @@ public class Sistema {
             case 1:
                 System.out.print("Novo nome: ");
                 String novoNome = Console.lerString();
-                professor.alterarNome(novoNome);
-                System.out.println("Nome alterado com sucesso!");
+                professor.setNome(novoNome);
+                System.out.println("Nome alterado com Sucesso!");
                 break;
             case 2:
-                System.out.print("Novo registro: ");
-                int novoRegistro = Console.lerInt();
-                professor.alterarRegistro(novoRegistro);
-                System.out.println("Registro alterado com sucesso!");
+                System.out.print("Novo email: ");
+                String novoEmail = Console.lerString();
+                professor.setEmail(novoEmail);;
+                System.out.println("Email alterado com Sucesso!");
                 break;
             case 3:
                 System.out.print("Nova senha: ");
                 String novaSenha = Console.lerString();
-                professor.alterarSenha(novaSenha);
-                System.out.println("Senha alterada com sucesso!");
+                professor.setSenha(novaSenha);
+                System.out.println("Senha alterada com Sucesso!");
                 break;
             case 0:
                 break;
