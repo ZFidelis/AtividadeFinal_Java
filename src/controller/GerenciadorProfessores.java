@@ -8,7 +8,6 @@ import java.util.ArrayList;
 //#endregion
 public class GerenciadorProfessores {
     private static final File PROFESSORES_REGISTRADOS = new File("src/database/professores.txt");
-    
     private static ArrayList<Professor> listaProfessores = new ArrayList<>();
 
     //#region File Manipulation

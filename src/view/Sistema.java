@@ -551,7 +551,6 @@ public class Sistema {
         if (tentativas >= 3) {
             System.out.println("\nCódigo Inválido 3 vezes!");
             System.out.println("Conta bloqueada, por motivos de segurança enviar email para suporte@cursosUP.com.br");
-            finalizar();
             return false;
         }
     
