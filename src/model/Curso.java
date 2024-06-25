@@ -117,15 +117,12 @@ public class Curso {
         String nomeProfessor = dadosCurso[3];
 
         ArrayList<Aluno> listaAlunos = new ArrayList<>();
-        if (dadosCurso.length > 5) {
-            String[] alunosRegistrados = dadosCurso[5].split("; ");
+        if (dadosCurso.length > 4) {
+            String[] alunosRegistrados = dadosCurso[4].split("; ");
             for (String alunoId : alunosRegistrados) {
-                System.out.println(Integer.parseInt(alunoId));
                 Aluno tempAluno = GerenciadorAlunos.buscarAluno(Integer.parseInt(alunoId));
-                System.out.println(tempAluno);
                 listaAlunos.add(tempAluno);
             }
-            System.out.println(listaAlunos);
         }
         return new Curso(titulo, descricao, duracao, nomeProfessor, listaAlunos);
     }
