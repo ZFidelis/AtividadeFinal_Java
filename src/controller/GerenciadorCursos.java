@@ -24,8 +24,8 @@ public class GerenciadorCursos {
     }
 
     public static void manterCursos() throws IOException {
-        for (Curso curso : listaCursos) {
-            try(FileWriter fw = new FileWriter(CURSOS_REGISTRADOS);BufferedWriter bw = new BufferedWriter(fw)) {
+        try(FileWriter fw = new FileWriter(CURSOS_REGISTRADOS);BufferedWriter bw = new BufferedWriter(fw)) {
+            for (Curso curso : listaCursos) {
                 bw.write(curso + "\n");
             }
         }

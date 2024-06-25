@@ -25,8 +25,8 @@ public class GerenciadorAdministradores {
     }
 
     public static void manterAdministradores() throws IOException {
-        for (Administrador administrador : listaAdministradores) {
-            try(FileWriter fw = new FileWriter(ADMINISTRADORES_REGISTRADOS);BufferedWriter bw = new BufferedWriter(fw)) {
+        try(FileWriter fw = new FileWriter(ADMINISTRADORES_REGISTRADOS);BufferedWriter bw = new BufferedWriter(fw)) {
+            for (Administrador administrador : listaAdministradores) {
                 bw.write(administrador + "\n");
             }
         }

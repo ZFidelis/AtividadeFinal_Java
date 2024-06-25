@@ -24,8 +24,8 @@ public class GerenciadorProfessores {
     }
 
     public static void manterProfessores() throws IOException {
-        for (Professor professor : listaProfessores) {
-            try(FileWriter fw = new FileWriter(PROFESSORES_REGISTRADOS);BufferedWriter bw = new BufferedWriter(fw)) {
+        try(FileWriter fw = new FileWriter(PROFESSORES_REGISTRADOS);BufferedWriter bw = new BufferedWriter(fw)) {
+            for (Professor professor : listaProfessores) {
                 bw.write(professor + "\n");
             }
         }
