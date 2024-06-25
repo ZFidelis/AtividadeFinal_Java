@@ -11,7 +11,7 @@ No menu do aluno é possível se inscrever em um curso e ver os cursos em que es
 No menu do professor é possível cadastrar novos curso, ver os cursos que está lecionando, alterar seus dados como nome e senha e sair.
 
 #### Menu Administrador:
-No menu do administrador é possível excluir um curso, um aluno ou um professor, entrar no menu de professor e aluno, alterar os próprios dados como nome, senha e nivel de acesso e alterar todos os dados de aluno
+No menu do administrador é possível excluir um curso, um aluno ou um professor, alterar os próprios dados como nome, senha e nivel de acesso e alterar todos os dados de aluno
 
 ## Classes
 Existem 5 classes, a classe "Curso", a classe abstarata "Usuario", 3 classes que herdam usuario, "Aluno", "Professor" e "Administrador". as classes serão explicadas abaixo.
@@ -44,7 +44,7 @@ Herda usuario, possui o método dadosProfessor() que retorna super.dadosUsuario(
 - Int registro
 
 #### Administrador:
-O administrador pode excluir cursos, alunos ou professores, acessar os outros dois menus, alterar seus dados como nome e senha e alterar dados de alunos.
+O administrador pode excluir cursos, alunos ou professores, alterar seus dados como nome e senha e alterar dados de alunos.
 
 Herda usuario, possui o método dadosAdministrador() que retorna super.dadosUsuario() + nivelAcesso, os métodos removerCurso(), removerAluno() e removerProfessor() que deletam curso, aluno e professor respectivamente, os métodos alterarNome(String novoNome), alterarSenha(String novaSenha) e alterarNivelAcesso(int novoRegistro) que permitem o administrador a alterar nome senha e nivel de acesso respectivamente, alterarDadosAluno() para alterar os dados de aluno, um toString, um fromString e 1 Atributo:
 - Int nivelAcesso
