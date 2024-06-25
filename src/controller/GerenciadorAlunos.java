@@ -61,10 +61,14 @@ public class GerenciadorAlunos {
     }
 
     public static void excluirAluno(Aluno aluno) {
+        boolean existe = false;
         for (Aluno alunoT : listaAlunos) {
             if (alunoT.getNome().equals(aluno.getNome())) {
-               listaAlunos.remove(alunoT); 
+               existe = true;
             }
+        }
+        if (existe) {
+            listaAlunos.remove(aluno); 
         }
     }
 
